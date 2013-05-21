@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/ret.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+<head>
+ <title>Intel Pentium Instruction Set Reference - RET - Return from Procedure</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+ <meta name="Author" content="jsimlo@yahoo.com (Medvedik)" />
+ <meta name="Robots" content="index,follow" />
+ <meta name="Keywords" content="intel, pentium, instruction, instructions, reference, asm, assembly, assmebler, cpu, 80386, 386, 80486, 486, 80x86, x86" />
+ <meta name="Description" content="Intel Pentium Instruction Set Reference - RET - Return from Procedure" />
+ <style type="text/css"><!--
+  @import 'style.css';
+ --></style>
+</head>
+<body>
+
+<a name="go-menu"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-body">Jump to body</a> ]</i>
+<hr />
+</div>
+
+<div id="menu">
+<div id="menu-in">
+
+<h1>Menu</h1>
+
+<h2>Intro</h2>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="architecture.html">Architecture Overview</a></li>
+<li><a href="conventions.html">Conventions</a></li>
+</ul>
+
+<h2>Instructions</h2>
+
+<div class="ilist">
+<a href="index.html#a">A</a>
+<a href="index.html#b">B</a>
+<a href="index.html#c">C</a>
+<a href="index.html#d">D</a>
+<a href="index.html#e">E</a>
+<a href="index.html#f">F</a>
+<a href="index.html#g">G</a>
+<a href="index.html#h">H</a>
+<a href="index.html#i">I</a>
+<a href="index.html#j">J</a>
+<a href="index.html#k">K</a>
+<a href="index.html#l">L</a>
+<a href="index.html#m">M</a>
+<a href="index.html#n">N</a>
+<a href="index.html#o">O</a>
+<a href="index.html#p">P</a>
+<a href="index.html#q">Q</a>
+<a href="index.html#r">R</a>
+<a href="index.html#s">S</a>
+<a href="index.html#t">T</a>
+<a href="index.html#u">U</a>
+<a href="index.html#v">V</a>
+<a href="index.html#w">W</a>
+<a href="index.html#x">X</a>
+<a href="index.html#y">Y</a>
+<a href="index.html#z">Z</a>
+</div>
+
+
+
+
+<div class="tools" align="center">
+<p>[<a href="#">jump to top</a>]</p>
+</div>
+
+</div><!-- #menu-in -->
+</div><!-- #menu -->
+<a name="go-body"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-menu">Jump to menu</a> ]</i>
+<hr />
+</div>
+
+<div id="body">
+
+<h1>Intel Pentium Instruction Set Reference</h1>
+
+<h1>RET - Return from Procedure</h1>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Code</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+<tr>
+<td nowrap="nowrap">C3</td>
+<td nowrap="nowrap">RET</td>
+<td>Near return to calling procedure</td>
+</tr>
+<tr>
+<td nowrap="nowrap">CB</td>
+<td nowrap="nowrap">RET</td>
+<td>Far return to calling procedure</td>
+</tr>
+<tr>
+<td nowrap="nowrap">C2 iw</td>
+<td nowrap="nowrap">RET imm16</td>
+<td>Near return to calling procedure and pop imm16 bytes from stack</td>
+</tr>
+<tr>
+<td nowrap="nowrap">CA iw</td>
+<td nowrap="nowrap">RET imm16</td>
+<td>Far return to calling procedure and pop imm16 bytes from stack</td>
+</tr>
+</table>
+
+<h2>Description</h2>
+
+<p>Transfers program control to a return address located on the top of the stack. The address is usually placed on the stack by a CALL instruction, and the return is made to the instruction that follows the CALL instruction.</p>
+
+<p>The optional source operand specifies the number of stack bytes to be released after the return address is popped; the default is none. This operand can be used to release parameters from the stack that were passed to the called procedure and are no longer needed. It must be used when the CALL instruction used to switch to a new procedure uses a call gate with a non-zero word count to access the new procedure. Here, the source operand for the RET instruction must specify the same number of bytes as is specified in the word count field of the call gate.</p>
+
+<p>The RET instruction can be used to execute three different types of returns:</p>
+
+<ul>
+<li>Near return &mdash; A return to a calling procedure within the current code segment (the segment currently pointed to by the CS register), sometimes referred to as an intrasegment return.</li>
+<li>Far return &mdash; A return to a calling procedure located in a different segment than the current code segment, sometimes referred to as an intersegment return.</li>
+<li>Inter-privilege-level far return &mdash; A far return to a different privilege level than that of the currently executing program or procedure.</li>
+</ul>
+
+<p>The inter-privilege-level return type can only be executed in protected mode. See the section titled &quot;Calling Procedures Using Call and RET&quot; in Chapter 4 of the Intel Architecture Software Developer's Manual, Volume 1, for detailed information on near, far, and inter-privilege-level returns.</p>
+
+<p>When executing a near return, the processor pops the return instruction pointer (offset) from the top of the stack into the EIP register and begins program execution at the new instruction pointer. The CS register is unchanged.</p>
+
+<p>When executing a far return, the processor pops the return instruction pointer from the top of the stack into the EIP register, then pops the segment selector from the top of the stack into the CS register. The processor then begins program execution in the new code segment at the new instruction pointer.</p>
+
+<p>The mechanics of an inter-privilege-level far return are similar to an intersegment return, except that the processor examines the privilege levels and access rights of the code and stack segments being returned to determine if the control transfer is allowed to be made. The DS, ES, FS, and GS segment registers are cleared by the RET instruction during an inter-privilege-level return if they refer to segments that are not allowed to be accessed at the new privilege level. Since a stack switch also occurs on an inter-privilege level return, the ESP and SS registers are loaded from the stack.</p>
+
+<p>If parameters are passed to the called procedure during an inter-privilege level call, the optional source operand must be used with the RET instruction to release the parameters on the return. Here, the parameters are released both from the called procedure's stack and the calling procedure's stack (that is, the stack being returned to).</p>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Operands</th>
+<th>Bytes</th>
+<th colspan="2">Clocks</th>
+</tr>
+<tr>
+<td>retn</td>
+<td>1</td>
+<td>2</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>retn imm16</td>
+<td>1 + d(2)</td>
+<td>3</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>retf</td>
+<td>1</td>
+<td>4</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>retf imm16</td>
+<td>1 + d(2)</td>
+<td>4</td>
+<td>NP</td>
+</tr>
+</table>
+
+<h2>Flags</h2>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>ID</th>
+<td>unaffected</td>
+<th>DF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VIP</th>
+<td>unaffected</td>
+<th>IF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VIF</th>
+<td>unaffected</td>
+<th>TF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>AC</th>
+<td>unaffected</td>
+<th>SF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VM</th>
+<td>unaffected</td>
+<th>ZF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>RF</th>
+<td>unaffected</td>
+<th>AF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>NT</th>
+<td>unaffected</td>
+<th>PF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>IOPL</th>
+<td>unaffected</td>
+<th>CF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>OF</th>
+<td>unaffected</td>
+</tr>
+</table>
+
+</div><!-- #body -->
+
+
+
+
+
+</div>
+</body>
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/ret.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+</html>

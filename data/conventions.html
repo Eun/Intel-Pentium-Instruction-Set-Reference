@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/conventions.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+<head>
+ <title>Intel Pentium Instruction Set Reference - Conventions</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+ <meta name="Author" content="jsimlo@yahoo.com (Medvedik)" />
+ <meta name="Robots" content="index,follow" />
+ <meta name="Keywords" content="intel, pentium, instruction, instructions, reference, asm, assembly, assmebler, cpu, 80386, 386, 80486, 486, 80x86, x86" />
+ <meta name="Description" content="Intel Pentium Instruction Set Reference - Conventions" />
+ <style type="text/css"><!--
+  @import 'style.css';
+ --></style>
+</head>
+<body>
+
+<a name="go-menu"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-body">Jump to body</a> ]</i>
+<hr />
+</div>
+
+<div id="menu">
+<div id="menu-in">
+
+<h1>Menu</h1>
+
+<h2>Intro</h2>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="architecture.html">Architecture Overview</a></li>
+<li><a href="conventions.html">Conventions</a></li>
+</ul>
+
+<h2>Instructions</h2>
+
+<div class="ilist">
+<a href="index.html#a">A</a>
+<a href="index.html#b">B</a>
+<a href="index.html#c">C</a>
+<a href="index.html#d">D</a>
+<a href="index.html#e">E</a>
+<a href="index.html#f">F</a>
+<a href="index.html#g">G</a>
+<a href="index.html#h">H</a>
+<a href="index.html#i">I</a>
+<a href="index.html#j">J</a>
+<a href="index.html#k">K</a>
+<a href="index.html#l">L</a>
+<a href="index.html#m">M</a>
+<a href="index.html#n">N</a>
+<a href="index.html#o">O</a>
+<a href="index.html#p">P</a>
+<a href="index.html#q">Q</a>
+<a href="index.html#r">R</a>
+<a href="index.html#s">S</a>
+<a href="index.html#t">T</a>
+<a href="index.html#u">U</a>
+<a href="index.html#v">V</a>
+<a href="index.html#w">W</a>
+<a href="index.html#x">X</a>
+<a href="index.html#y">Y</a>
+<a href="index.html#z">Z</a>
+</div>
+
+
+
+
+<div class="tools" align="center">
+<p>[<a href="#">jump to top</a>]</p>
+</div>
+
+</div><!-- #menu-in -->
+</div><!-- #menu -->
+<a name="go-body"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-menu">Jump to menu</a> ]</i>
+<hr />
+</div>
+
+<div id="body">
+
+<h1>Intel Pentium Instruction Set Reference</h1>
+
+<h1>Conventions</h1>
+
+<h2>Official Operands</h2>
+
+<table border="1" cellpadding="5" class="conventions">
+<tr><th valign="top">rel8</th><td>A relative address in the range from 128 bytes before the end of the instruction to 127 bytes after the end of the instruction.</td></tr>
+<tr><th valign="top">rel16, rel32</th><td>A relative address within the same code segment as the instruction assembled. The rel16 symbol applies to instructions with an operand-size attribute of 16 bits; the rel32 symbol applies to instruction switch an operand-size attribute of 32 bits.</td></tr>
+<tr><th valign="top">ptr16:16, ptr16:32</th><td>A far pointer, typically in a code segment different from that of the instruction. The notation 16:16indicates that the value of the pointer has two parts. The value to the left of the colon is a 16-bit selector or value destined for the code segment register. The value to the right corresponds to the offset within the destination segment. The ptr16:16 symbol is used when the instruction's operand-size attribute is 16bits; the ptr16:32 symbol is used when the operand-size attribute is 32 bits.</td></tr>
+<tr><th valign="top">r8</th><td>One of the byte general-purpose registers AL, CL, DL, BL, AH, CH, DH, or BH.</td></tr>
+<tr><th valign="top">r16</th><td>One of the word general-purpose registers AX, CX, DX, BX, SP, BP, SI, or DI.</td></tr>
+<tr><th valign="top">r32</th><td>One of the double word general-purpose registers EAX, ECX, EDX, EBX, ESP, EBP, ESI, or EDI.</td></tr>
+<tr><th valign="top">imm8</th><td>An immediate byte value. The imm8 symbol is assigned number between –128 and +127 inclusive. For instructions in which imm8 is combined with a word or doubleword operand, the immediate value is sign-extended to form a word or doubleword. The upper byte of the word is filled with the topmost bit of the immediate value.</td></tr>
+<tr><th valign="top">imm16</th><td>An immediate word value used for instructions whose operand-size attribute is 16 bits. This is a number between –32,768 and +32,767 inclusive.</td></tr>
+<tr><th valign="top">imm32</th><td>An immediate doubleword value used for instructions whose operand-size attribute is 32 bits. It allows the use of a number between +2,147,483,647 and–2,147,483,648 inclusive.</td></tr>
+<tr><th valign="top">r/m8</th><td>A byte operand that is either the contents of a byte general-purpose register (AL, BL, CL, DL, AH, BH, CH, and DH), or a byte from memory.</td></tr>
+<tr><th valign="top">r/m16</th><td>A word general-purpose register or memory operand used for instructions whose operand-size attribute is16 bits. The word general-purpose registers are: AX, BX, CX, DX, SP, BP, SI, and DI. The contents of memory are found at the address provided by the effective address computation.</td></tr>
+<tr><th valign="top">r/m32</th><td>A doubleword general-purpose register or memory operand used for instructions whose operand-size attribute is 32 bits. The doubleword general-purpose registers are: EAX, EBX, ECX, EDX, ESP, EBP, ESI, and EDI. The contents of memory are found at the address provided by the effective address computation.</td></tr>
+<tr><th valign="top">m</th><td>A 16- or 32-bit operand in memory.</td></tr>
+<tr><th valign="top">m8</th><td>A byte operand in memory, usually expressed as a variable or array name, but pointed to by the DS:(E)SI or ES:(E)DI registers. This nomenclature is used only with the string instructions and the XLAT instruction.</td></tr>
+<tr><th valign="top">m16</th><td>A word operand in memory, usually expressed as a variable or array name, but pointed to by the DS:(E)SI or ES:(E)DI registers. This nomenclature is used only with the string instructions.</td></tr>
+<tr><th valign="top">m32</th><td>A doubleword operand in memory, usually expressed as a variable or array name, but pointed to by the DS:(E)SI or ES:(E)DI registers. This nomenclature is used only with the string instructions.</td></tr>
+<tr><th valign="top">m64</th><td>A memory quadword operand in memory. This nomenclature is used only with the CMPXCHG8Binstruction.</td></tr>
+<tr><th valign="top">m16:16, m16:32</th><td>A memory operand containing a far pointer composed of two numbers. The number to the left of the colon corresponds to the pointer's segment selector. The number to the right corresponds to its offset.</td></tr>
+<tr><th valign="top">m16&amp;32, m16&amp;16, m32&amp;32</th><td>A memory operand consisting of data item pairs whose sizes are indicated on the left and the right side of the ampersand. All memory addressing modes are allowed. The m16&amp;16 and m32&amp;32 operands are used by the BOUND instruction to provide an operand containing an upper and lower bounds for array indices. The m16&amp;32operand is used by LIDT and LGDT to provide a word with which to load the limit field, and a doubleword with which to load the base field of the corresponding GDTR and IDTR registers.</td></tr>
+<tr><th valign="top">moffs8, moffs16, moffs32</th><td>A simple memory variable (memory offset) of type byte, word, or doubleword used by some variants of the MOV instruction. The actual address is given by a simple offset relative to the segment base. No ModR/M byte is used in the instruction. The number shown with moffs indicates its size, which is determined by the address-size attribute of the instruction.</td></tr>
+<tr><th valign="top">Sreg</th><td>A segment register. The segment register bit assignments are ES=0, CS=1, SS=2, DS=3, FS=4, and GS=5.</td></tr>
+<tr><th valign="top">m32real, m64real, m80real</th><td>A single-, double-, and extended-real (respectively) floating-point operand in memory.</td></tr>
+<tr><th valign="top">m16int, m32int, m64int</th><td>A word-, short-, and long-integer (respectively) floating-point operand in memory.</td></tr>
+<tr><th valign="top">ST or ST(0)</th><td>The top element of the FPU register stack.</td></tr>
+<tr><th valign="top">ST(i)</th><td>The i th element from the top of the FPU register stack. (i = 0 through 7)</td></tr>
+<tr><th valign="top">mm</th><td>An MMX™ register. The 64-bit MMX registers are: MM0 through MM7.</td></tr>
+<tr><th valign="top">mm/m32</th><td>The low order 32 bits of an MMX register or a 32-bit memory operand. The 64-bit MMX registers are: MM0through MM7. The contents of memory are found at the address provided by the effective address computation.</td></tr>
+<tr><th valign="top">mm/m64</th><td>An MMX register or a 64-bit memory operand. The 64-bitMMX registers are: MM0 through MM7. The contents of memory are found at the address provided by the effective address computation.</td></tr>
+</table>
+
+<h2>Generalized Operands</h2>
+
+<table border="1" cellpadding="5" class="conventions">
+<tr><th>acc</th><td>AL, AX or EAX unless specified otherwise.</td></tr>
+<tr><th>reg</th><td>Any general register.</td></tr>
+<tr><th>r8</th><td>Any 8-bit register.</td></tr>
+<tr><th>r16</th><td>Any general purpose 16-bit register.</td></tr>
+<tr><th>r32</th><td>Any general purpose 32-bit register.</td></tr>
+<tr><th>imm</th><td>Immediate data.</td></tr>
+<tr><th>imm8</th><td>8-bit immediate data.</td></tr>
+<tr><th>imm16</th><td>16-bit immediate data.</td></tr>
+<tr><th>mem</th><td>Memory address.</td></tr>
+<tr><th>mem8</th><td>Address of 8-bit data item.</td></tr>
+<tr><th>mem16</th><td>Address of 16-bit data item.</td></tr>
+<tr><th>mem32</th><td>Address of 32-bit data item.</td></tr>
+<tr><th>mem48</th><td>Address of 48-bit data item.</td></tr>
+<tr><th>dest</th><td>16/32-bit destination.</td></tr>
+<tr><th>short</th><td>8-bit destination.</td></tr>
+</table>
+
+<h2>Instruction Size</h2>
+
+<p>The byte count includes the opcode length and length of any required displacement or immediate data. If the displacement is optional, it is shown as d() with the possible lengths in parentheses. If the immediate data is optional, it is shown as i() with the possible lengths in parentheses.</p>
+
+<h2>Pairing Categories</h2>
+
+<table border="1" cellpadding="5" class="conventions">
+<tr><th>NP</th><td>Not pairable.</td></tr>
+<tr><th>UV</th><td>Pairable in the U pipe or V pipe.</td></tr>
+<tr><th>PU</th><td>Pairable in the U pipe only.</td></tr>
+<tr><th>PV</th><td>Pairable in the V pipe only.</td></tr>
+</table>
+
+</div><!-- #body -->
+
+
+
+
+
+</div>
+</body>
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/conventions.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+</html>

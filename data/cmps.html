@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/cmps.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+<head>
+ <title>Intel Pentium Instruction Set Reference - CMPS - Compare String Operands</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+ <meta name="Author" content="jsimlo@yahoo.com (Medvedik)" />
+ <meta name="Robots" content="index,follow" />
+ <meta name="Keywords" content="intel, pentium, instruction, instructions, reference, asm, assembly, assmebler, cpu, 80386, 386, 80486, 486, 80x86, x86" />
+ <meta name="Description" content="Intel Pentium Instruction Set Reference - CMPS - Compare String Operands" />
+ <style type="text/css"><!--
+  @import 'style.css';
+ --></style>
+</head>
+<body>
+
+<a name="go-menu"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-body">Jump to body</a> ]</i>
+<hr />
+</div>
+
+<div id="menu">
+<div id="menu-in">
+
+<h1>Menu</h1>
+
+<h2>Intro</h2>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="architecture.html">Architecture Overview</a></li>
+<li><a href="conventions.html">Conventions</a></li>
+</ul>
+
+<h2>Instructions</h2>
+
+<div class="ilist">
+<a href="index.html#a">A</a>
+<a href="index.html#b">B</a>
+<a href="index.html#c">C</a>
+<a href="index.html#d">D</a>
+<a href="index.html#e">E</a>
+<a href="index.html#f">F</a>
+<a href="index.html#g">G</a>
+<a href="index.html#h">H</a>
+<a href="index.html#i">I</a>
+<a href="index.html#j">J</a>
+<a href="index.html#k">K</a>
+<a href="index.html#l">L</a>
+<a href="index.html#m">M</a>
+<a href="index.html#n">N</a>
+<a href="index.html#o">O</a>
+<a href="index.html#p">P</a>
+<a href="index.html#q">Q</a>
+<a href="index.html#r">R</a>
+<a href="index.html#s">S</a>
+<a href="index.html#t">T</a>
+<a href="index.html#u">U</a>
+<a href="index.html#v">V</a>
+<a href="index.html#w">W</a>
+<a href="index.html#x">X</a>
+<a href="index.html#y">Y</a>
+<a href="index.html#z">Z</a>
+</div>
+
+
+
+
+<div class="tools" align="center">
+<p>[<a href="#">jump to top</a>]</p>
+</div>
+
+</div><!-- #menu-in -->
+</div><!-- #menu -->
+<a name="go-body"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-menu">Jump to menu</a> ]</i>
+<hr />
+</div>
+
+<div id="body">
+
+<h1>Intel Pentium Instruction Set Reference</h1>
+
+<h1>CMPS - Compare String Operands</h1>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Code</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+<tr>
+<td nowrap="nowrap">A6</td>
+<td nowrap="nowrap">CMPS m8, m8</td>
+<td>Compares byte at address DS:(E)SI with byte at address ES:(E)DI and sets the status flags accordingly</td>
+</tr>
+<tr>
+<td nowrap="nowrap">A7</td>
+<td nowrap="nowrap">CMPS m16, m16</td>
+<td>Compares word at address DS:(E)SI with word at address ES:(E)DI and sets the status flags accordingly</td>
+</tr>
+<tr>
+<td nowrap="nowrap">A7</td>
+<td nowrap="nowrap">CMPS m32, m32</td>
+<td>Compares doubleword at address DS:(E)SI with doubleword at address ES:(E)DI and sets the status flags accordingly</td>
+</tr>
+<tr>
+<td nowrap="nowrap">A6</td>
+<td nowrap="nowrap">CMPSB</td>
+<td>Compares byte at address DS:(E)SI with byte at address ES:(E)DI and sets the status flags accordingly</td>
+</tr>
+<tr>
+<td nowrap="nowrap">A7</td>
+<td nowrap="nowrap">CMPSW</td>
+<td>Compares word at address DS:(E)SI with word at address ES:(E)DI and sets the status flags accordingly</td>
+</tr>
+<tr>
+<td nowrap="nowrap">A7</td>
+<td nowrap="nowrap">CMPSD</td>
+<td>Compares doubleword at address DS:(E)SI with doubleword at address ES:(E)DI and sets the status flags accordingly</td>
+</tr>
+</table>
+
+<h2>Description</h2>
+
+<p>Compares the byte, word, or double word specified with the first source operand with the byte, word, or double word specified with the second source operand and sets the status flags in the EFLAGS register according to the results. Both the source operands are located in memory. The address of the first source operand is read from either the DS:ESI or the DS:SI registers (depending on the address-size attribute of the instruction, 32 or 16, respectively). The address of the second source operand is read from either the ES:EDI or the ES:DI registers (again depending on the address-size attribute of the instruction). The DS segment may be overridden with a segment override prefix, but the ES segment cannot be overridden.</p>
+
+<p>At the assembly-code level, two forms of this instruction are allowed: the &quot;explicit-operands&quot; form and the &quot;no-operands&quot; form. The explicit-operands form (specified with the CMPS mnemonic) allows the two source operands to be specified explicitly. Here, the source operands should be symbols that indicate the size and location of the source values. This explicit-operands form is provided to allow documentation; however, note that the documentation provided by this form can be misleading. That is, the source operand symbols must specify the correct type (size) of the operands (bytes, words, or doublewords), but they do not have to specify the correct location. The locations of the source operands are always specified by the DS:(E)SI and ES:(E)DI registers, which must be loaded correctly before the compare string instruction is executed.</p>
+
+<p>The no-operands form provides &quot;short forms&quot; of the byte, word, and doubleword versions of the CMPS instructions. Here also the DS:(E)SI and ES:(E)DI registers are assumed by the processor to specify the location of the source operands. The size of the source operands is selected with the mnemonic: CMPSB (byte comparison), CMPSW (word comparison), or CMPSD (double-word comparison).</p>
+
+<p>After the comparison, the (E)SI and (E)DI registers are incremented or decremented automati-cally according to the setting of the DF flag in the EFLAGS register. (If the DF flag is 0, the (E)SI and (E)DI register are incremented; if the DF flag is 1, the (E)SI and (E)DI registers are decremented.) The registers are incremented or decremented by 1 for byte operations, by 2 for word operations, or by 4 for doubleword operations.</p>
+
+<p>The CMPS, CMPSB, CMPSW, and CMPSD instructions can be preceded by the <a href="rep.html">REP</a> prefix for block comparisons of ECX bytes, words, or doublewords. More often, however, these instructions will be used in a <a href="loop.html">LOOP</a> construct that takes some action based on the setting of the status flags before the next comparison is made. See &quot;<a href="rep.html">REP</a>/<a href="rep.html">REPE</a>/<a href="rep.html">REPZ</a>/<a href="rep.html">REPNE</a>/<a href="rep.html">REPNZ</a> &mdash; Repeat String Operation Prefix&quot; in this chapter for a description of the <a href="rep.html">REP</a> prefix.</p>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Operands</th>
+<th>Bytes</th>
+<th colspan="2">Clocks</th>
+</tr>
+<tr>
+<td>cmpsb</td>
+<td>1</td>
+<td>5</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>cmpsw</td>
+<td>1</td>
+<td>5</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>cmpsd</td>
+<td>1</td>
+<td>5</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>repe/repz/ repne/ repnz cmpsb</td>
+<td>2</td>
+<td>9 + 4n</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>repe/repz/ repne/ repnz cmpsw</td>
+<td>2</td>
+<td>9 + 4n</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>repe/repz/ repne/ repnz cmpsd</td>
+<td>2</td>
+<td>9 + 4n</td>
+<td>NP</td>
+</tr>
+</table>
+
+<h2>Flags</h2>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>ID</th>
+<td>unaffected</td>
+<th>DF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VIP</th>
+<td>unaffected</td>
+<th>IF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VIF</th>
+<td>unaffected</td>
+<th>TF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>AC</th>
+<td>unaffected</td>
+<th>SF</th>
+<td>sets according to the temporary result of the comparison</td>
+</tr>
+<tr>
+<th>VM</th>
+<td>unaffected</td>
+<th>ZF</th>
+<td>sets according to the temporary result of the comparison</td>
+</tr>
+<tr>
+<th>RF</th>
+<td>unaffected</td>
+<th>AF</th>
+<td>sets according to the temporary result of the comparison</td>
+</tr>
+<tr>
+<th>NT</th>
+<td>unaffected</td>
+<th>PF</th>
+<td>sets according to the temporary result of the comparison</td>
+</tr>
+<tr>
+<th>IOPL</th>
+<td>unaffected</td>
+<th>CF</th>
+<td>sets according to the temporary result of the comparison</td>
+</tr>
+<tr>
+<th>OF</th>
+<td>sets according to the temporary result of the comparison</td>
+</tr>
+</table>
+
+</div><!-- #body -->
+
+
+
+
+
+</div>
+</body>
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/cmps.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+</html>

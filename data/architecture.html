@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/architecture.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+<head>
+ <title>Intel Pentium Instruction Set Reference - Basic Architecture Overview</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+ <meta name="Author" content="jsimlo@yahoo.com (Medvedik)" />
+ <meta name="Robots" content="index,follow" />
+ <meta name="Keywords" content="intel, pentium, instruction, instructions, reference, asm, assembly, assmebler, cpu, 80386, 386, 80486, 486, 80x86, x86" />
+ <meta name="Description" content="Intel Pentium Instruction Set Reference - Basic Architecture Overview" />
+ <style type="text/css"><!--
+  @import 'style.css';
+ --></style>
+</head>
+<body>
+
+<a name="go-menu"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-body">Jump to body</a> ]</i>
+<hr />
+</div>
+
+<div id="menu">
+<div id="menu-in">
+
+<h1>Menu</h1>
+
+<h2>Intro</h2>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="architecture.html">Architecture Overview</a></li>
+<li><a href="conventions.html">Conventions</a></li>
+</ul>
+
+<h2>Instructions</h2>
+
+<div class="ilist">
+<a href="index.html#a">A</a>
+<a href="index.html#b">B</a>
+<a href="index.html#c">C</a>
+<a href="index.html#d">D</a>
+<a href="index.html#e">E</a>
+<a href="index.html#f">F</a>
+<a href="index.html#g">G</a>
+<a href="index.html#h">H</a>
+<a href="index.html#i">I</a>
+<a href="index.html#j">J</a>
+<a href="index.html#k">K</a>
+<a href="index.html#l">L</a>
+<a href="index.html#m">M</a>
+<a href="index.html#n">N</a>
+<a href="index.html#o">O</a>
+<a href="index.html#p">P</a>
+<a href="index.html#q">Q</a>
+<a href="index.html#r">R</a>
+<a href="index.html#s">S</a>
+<a href="index.html#t">T</a>
+<a href="index.html#u">U</a>
+<a href="index.html#v">V</a>
+<a href="index.html#w">W</a>
+<a href="index.html#x">X</a>
+<a href="index.html#y">Y</a>
+<a href="index.html#z">Z</a>
+</div>
+
+
+
+
+<div class="tools" align="center">
+<p>[<a href="#">jump to top</a>]</p>
+</div>
+
+</div><!-- #menu-in -->
+</div><!-- #menu -->
+<a name="go-body"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-menu">Jump to menu</a> ]</i>
+<hr />
+</div>
+
+<div id="body">
+
+<h1>Intel Pentium Instruction Set Reference</h1>
+
+<h1>Basic Architecture Overview</h1>
+
+<h2>General purpose registers</h2>
+
+<table class="regs-list" cellspacing="5">
+<tr><th>EAX</th><td>Accumulator. Accumulator for operands and results data.</td></tr>
+<tr><th>EBX</th><td>Base. Pointer to data in the DS segment.</td></tr>
+<tr><th>ECX</th><td>Count. Counter for string and loop operations.</td></tr>
+<tr><th>EDX</th><td>Data. I/O pointer.</td></tr>
+<tr><th>ESI</th><td>Source Index. Pointer to data in the segment pointed to by the DS register; source pointer for string operations.</td></tr>
+<tr><th>EDI</th><td>Destination Index. Pointer to data (or destination) in the segment pointed to by the ES register; destination pointer for string operations.</td></tr>
+<tr><th>EBP</th><td>Base Pointer. Pointer to data on the stack (in the SS segment).</td></tr>
+</table>
+
+<table class="regs-overlay" cellspacing="30">
+<tr><td valign="top">
+
+<table class="reg-32" border="1"><tr><th nowrap="nowrap">EAX&nbsp;<small>(32-bit)</small>
+<table class="reg-16" border="1"><tr><th width="50%" nowrap="nowrap">&nbsp;</th><th width="50%" nowrap="nowrap">AX&nbsp;<small>(16-bit)</small>
+<table class="reg-8" border="1"><tr><th width="50%" nowrap="nowrap">AH&nbsp;<small>(8-bit)</small></th><th width="50%" nowrap="nowrap">AL&nbsp;<small>(8-bit)</small>
+</th></tr></table>
+</th></tr></table>
+</th></tr></table><br />
+
+<table class="reg-32" border="1"><tr><th nowrap="nowrap">EBX&nbsp;<small>(32-bit)</small>
+<table class="reg-16" border="1"><tr><th width="50%" nowrap="nowrap">&nbsp;</th><th width="50%" nowrap="nowrap">BX&nbsp;<small>(16-bit)</small>
+<table class="reg-8" border="1"><tr><th width="50%" nowrap="nowrap">BH&nbsp;<small>(8-bit)</small></th><th width="50%" nowrap="nowrap">BL&nbsp;<small>(8-bit)</small>
+</th></tr></table>
+</th></tr></table>
+</th></tr></table><br />
+
+<table class="reg-32" border="1"><tr><th nowrap="nowrap">ECX&nbsp;<small>(32-bit)</small>
+<table class="reg-16" border="1"><tr><th width="50%" nowrap="nowrap">&nbsp;</th><th width="50%" nowrap="nowrap">CX&nbsp;<small>(16-bit)</small>
+<table class="reg-8" border="1"><tr><th width="50%" nowrap="nowrap">CH&nbsp;<small>(8-bit)</small></th><th width="50%" nowrap="nowrap">CL&nbsp;<small>(8-bit)</small>
+</th></tr></table>
+</th></tr></table>
+</th></tr></table><br />
+
+<table class="reg-32" border="1"><tr><th nowrap="nowrap">EDX&nbsp;<small>(32-bit)</small>
+<table class="reg-16" border="1"><tr><th width="50%" nowrap="nowrap">&nbsp;</th><th width="50%" nowrap="nowrap">DX&nbsp;<small>(16-bit)</small>
+<table class="reg-8" border="1"><tr><th width="50%" nowrap="nowrap">DH&nbsp;<small>(8-bit)</small></th><th width="50%" nowrap="nowrap">DL&nbsp;<small>(8-bit)</small>
+</th></tr></table>
+</th></tr></table>
+</th></tr></table><br />
+
+</td><td valign="top">
+
+<table class="reg-32" border="1"><tr><th nowrap="nowrap">EBP&nbsp;<small>(32-bit)</small>
+<table class="reg-16" border="1"><tr><th width="50%" nowrap="nowrap">&nbsp;</th><th width="50%" nowrap="nowrap">BP&nbsp;<small>(16-bit)</small>
+</th></tr></table>
+</th></tr></table><br />
+
+<table class="reg-32" border="1"><tr><th nowrap="nowrap">ESI&nbsp;<small>(32-bit)</small>
+<table class="reg-16" border="1"><tr><th width="50%" nowrap="nowrap">&nbsp;</th><th width="50%" nowrap="nowrap">SI&nbsp;<small>(16-bit)</small>
+</th></tr></table>
+</th></tr></table><br />
+
+<table class="reg-32" border="1"><tr><th nowrap="nowrap">EDI&nbsp;<small>(32-bit)</small>
+<table class="reg-16" border="1"><tr><th width="50%" nowrap="nowrap">&nbsp;</th><th width="50%" nowrap="nowrap">DI&nbsp;<small>(16-bit)</small>
+</th></tr></table>
+</th></tr></table><br />
+
+<table class="reg-32" border="1"><tr><th nowrap="nowrap">ESP&nbsp;<small>(32-bit)</small>
+<table class="reg-16" border="1"><tr><th width="50%" nowrap="nowrap">&nbsp;</th><th width="50%" nowrap="nowrap">SP&nbsp;<small>(16-bit)</small>
+</th></tr></table>
+</th></tr></table><br />
+
+</td></tr>
+</table>
+
+<h2>Segment registers</h2>
+
+<table class="regs-list" cellspacing="5">
+<tr><th>CS</th><td>Code Segment.</td></tr>
+<tr><th>DS</th><td>Data Segment.</td></tr>
+<tr><th>SS</th><td>Stack Segment.</td></tr>
+<tr><th>ES</th><td>Extra Data Segment.</td></tr>
+<tr><th>FS</th><td>Extra Data Segment.</td></tr>
+<tr><th>GS</th><td>Extra Data Segment.</td></tr>
+</table>
+
+<h2>Special purpose registers</h2>
+
+<table class="regs-list" cellspacing="5">
+<tr><th>EIP</th><td>Instruction Pointer. Pointer to the next instruction in a code segment. Automatically updated.</td></tr>
+<tr><th>ESP</th><td>Stack pointer. Pointer to the top of the stack (in the SS segment). Used with POP, PUSH, CALL, etc.</td></tr>
+</table>
+
+<table class="regs-overlay" cellspacing="30">
+<tr><td valign="top">
+
+<table class="reg-32" border="1"><tr><th nowrap="nowrap">EIP&nbsp;<small>(32-bit)</small>
+<table class="reg-16" border="1"><tr><th width="50%" nowrap="nowrap">&nbsp;</th><th width="50%" nowrap="nowrap">IP&nbsp;<small>(16-bit)</small>
+</th></tr></table>
+</th></tr></table><br />
+
+</td><td valign="top">
+
+<table class="reg-32" border="1"><tr><th nowrap="nowrap">ESP&nbsp;<small>(32-bit)</small>
+<table class="reg-16" border="1"><tr><th width="50%" nowrap="nowrap">&nbsp;</th><th width="50%" nowrap="nowrap">SP&nbsp;<small>(16-bit)</small>
+</th></tr></table>
+</th></tr></table><br />
+
+</td></tr>
+</table>
+
+<h2>EFLAGS register</h2>
+
+<table class="regs-list" cellspacing="5">
+<tr><th>EFLAGS</th><td>Flags. The state of various conditions in the cpu. The purpose of individual bits of the EFLAGS register is described below.</td></tr>
+</table>
+
+<br />
+
+<table border="1">
+ <tr>
+  <td width="6%">15</td><td width="6%">14</td><td width="6%">13</td><td width="6%">12</td>
+  <td width="6%">11</td><td width="6%">10</td><td width="6%">09</td><td width="6%">08</td>
+  <td width="6%">07</td><td width="6%">06</td><td width="6%">05</td><td width="6%">04</td>
+  <td width="6%">03</td><td width="6%">02</td><td width="6%">01</td><td width="6%">00</td>
+ </tr>
+ <tr>
+  <th>&nbsp;</th>
+  <th>Nested Task</th>
+
+  <th colspan="2">I/O privilege level</th>
+  <th>Overflow</th>
+  <th>Direction</th>
+  <th>Interrupt</th>
+  <th>Trap</th>
+
+  <th>Sign</th>
+  <th>Zero</th>
+  <th>&nbsp;</th>
+  <th>Auxiliary Carry</th>
+  <th>&nbsp;</th>
+
+  <th>Parity</th>
+  <th>&nbsp;</th>
+  <th>Carry</th>
+ </tr>
+</table>
+
+<ul>
+<li><b>Carry (CF)</b>: Holds the carry out after addition or the borrow after subtraction. Also indicates error conditions.</li>
+<li><b>Parity (PF)</b>: 0 for odd number of bits and 1 for even. Obsolete feature of the 80x86.</li>
+<li><b>Auxiliary Carry (AF)</b>: Highly specialized flag used by DAA and DAS instructions after BCD addition or subtraction.</li>
+<li><b>Zero (ZF)</b>: 1 if the result of an arithmetic or logic instruction is 0.</li>
+<li><b>Sign (SF)</b>: 1 if the sign of the result of an arithmetic or logic instruction is negative.</li>
+<li><b>Trap (TF)</b>: Trap enable. The microprocessor interrupts the flow of instructions on conditions indicated by the debug and control registers.</li>
+<li><b>Interrupt (IF)</b>: Controls the operation of the INTR (Interrupt request) pin. If 1, interrupts are enabled. Set by STI and CLI instructions.</li>
+<li><b>Direction (DF)</b>: Specifies increment or decrement mode for the DI and/or SI registers during string instructions. If 1, registers are automatically decremented. Set by STD and CLD instructions.</li>
+<li><b>Overflow (OF)</b>: Set for addition and subtraction instructions.</li>
+<li><b>I/O privilege level (IOPL)</b>: Holds the privilege level at which your code must be running in order to execute any I/O-related instructions. 00 is the highest.</li>
+<li><b>Nested Task (NT)</b>: Set when one system task has invoked another through a CALL instruction in protected mode.</li>
+</ul>
+
+<table border="1">
+ <tr>
+  <td width="6%">31</td><td width="6%">30</td><td width="6%">29</td><td width="6%">28</td>
+  <td width="6%">27</td><td width="6%">26</td><td width="6%">25</td><td width="6%">24</td>
+  <td width="6%">23</td><td width="6%">22</td><td width="6%">21</td><td width="6%">20</td>
+  <td width="6%">19</td><td width="6%">18</td><td width="6%">17</td><td width="6%">16</td>
+ </tr>
+ <tr>
+  <th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th>
+  <th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th>
+
+  <th>&nbsp;</th><th>&nbsp;</th>
+
+  <th>Identification</th>
+  <th>Virtual Interrupt Pending</th>
+  <th>Virtual Interrupt Flag</th>
+
+  <th>Alignment Check</th>
+  <th>Virtual Mode</th>
+  <th>Resume</th>
+ </tr>
+</table>
+
+<ul>
+<li><b>Resume (RF)</b>: Used with debugging to selectively mask some exceptions.</li>
+<li><b>Virtual Mode (VM)</b>: When 0, the CPU can operate in Protected mode, 286 Emulation mode or Real mode. When set, the CPU is converted to a high speed 8086. This bit has enormous impact.</li>
+<li><b>Alignment Check (AC)</b>: Specialized instruction for the 80486SX.</li>
+<li><b>Virtual Interrupt Flag (VIF)</b>: Copy of the interrupt flag bit.</li>
+<li><b>Virtual Interrupt Pending (VIP)</b>: Provides information about a virtual mode interrupt.</li>
+<li><b>Identification (ID)</b>: Supports the CPUID instruction, which provides version number and manufacturer information about the microprocessor.</li>
+</ul>
+
+</div><!-- #body -->
+
+
+
+
+
+</div>
+</body>
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/architecture.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+</html>

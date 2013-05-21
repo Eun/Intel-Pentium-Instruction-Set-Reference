@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/sti.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+<head>
+ <title>Intel Pentium Instruction Set Reference - STI - Set Interrupt Flag</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+ <meta name="Author" content="jsimlo@yahoo.com (Medvedik)" />
+ <meta name="Robots" content="index,follow" />
+ <meta name="Keywords" content="intel, pentium, instruction, instructions, reference, asm, assembly, assmebler, cpu, 80386, 386, 80486, 486, 80x86, x86" />
+ <meta name="Description" content="Intel Pentium Instruction Set Reference - STI - Set Interrupt Flag" />
+ <style type="text/css"><!--
+  @import 'style.css';
+ --></style>
+</head>
+<body>
+
+<a name="go-menu"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-body">Jump to body</a> ]</i>
+<hr />
+</div>
+
+<div id="menu">
+<div id="menu-in">
+
+<h1>Menu</h1>
+
+<h2>Intro</h2>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="architecture.html">Architecture Overview</a></li>
+<li><a href="conventions.html">Conventions</a></li>
+</ul>
+
+<h2>Instructions</h2>
+
+<div class="ilist">
+<a href="index.html#a">A</a>
+<a href="index.html#b">B</a>
+<a href="index.html#c">C</a>
+<a href="index.html#d">D</a>
+<a href="index.html#e">E</a>
+<a href="index.html#f">F</a>
+<a href="index.html#g">G</a>
+<a href="index.html#h">H</a>
+<a href="index.html#i">I</a>
+<a href="index.html#j">J</a>
+<a href="index.html#k">K</a>
+<a href="index.html#l">L</a>
+<a href="index.html#m">M</a>
+<a href="index.html#n">N</a>
+<a href="index.html#o">O</a>
+<a href="index.html#p">P</a>
+<a href="index.html#q">Q</a>
+<a href="index.html#r">R</a>
+<a href="index.html#s">S</a>
+<a href="index.html#t">T</a>
+<a href="index.html#u">U</a>
+<a href="index.html#v">V</a>
+<a href="index.html#w">W</a>
+<a href="index.html#x">X</a>
+<a href="index.html#y">Y</a>
+<a href="index.html#z">Z</a>
+</div>
+
+
+
+
+<div class="tools" align="center">
+<p>[<a href="#">jump to top</a>]</p>
+</div>
+
+</div><!-- #menu-in -->
+</div><!-- #menu -->
+<a name="go-body"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-menu">Jump to menu</a> ]</i>
+<hr />
+</div>
+
+<div id="body">
+
+<h1>Intel Pentium Instruction Set Reference</h1>
+
+<h1>STI - Set Interrupt Flag</h1>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Code</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+<tr>
+<td nowrap="nowrap">FB</td>
+<td nowrap="nowrap">STI</td>
+<td>Set interrupt flag; external, maskable interrupts enabled at the end of the next instruction</td>
+</tr>
+</table>
+
+<h2>Description</h2>
+
+<p>Sets the interrupt flag (IF) in the EFLAGS register. After the IF flag is set, the processor begins responding to external, maskable interrupts after the next instruction is executed. The delayed effect of this instruction is provided to allow interrupts to be enabled just before returning from a procedure (or subroutine). For instance, if an STI instruction is followed by an RET instruction, the RET instruction is allowed to execute before external interrupts are recognized 1 . This behavior allows external interrupts to be disabled at the beginning of a procedure and enabled again at the end of the procedure. If the STI instruction is followed by a CLI instruction (which clears the IF flag), the effect of the STI instruction is negated.</p>
+
+<p>The IF flag and the STI and CLI instructions have no affect on the generation of exceptions and NMI interrupts.</p>
+
+<p>The following decision table indicates the action of the STI instruction (bottom of the table) depending on the processor's mode of operation and the CPL and IOPL of the currently running program or procedure (top of the table).</p>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<td>PE =</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>VM =</td>
+<td>Don't care</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>CPL</td>
+<td>Don't care</td>
+<td>&lt;= IOPL</td>
+<td>&gt; IOPL</td>
+<td>=3</td>
+</tr>
+<tr>
+<td>IOPL</td>
+<td>Don't care</td>
+<td>Don't care</td>
+<td>Don't care</td>
+<td>=3</td>
+</tr>
+<tr>
+<td>IF &lt;&mdash; 1</td>
+<td>Action in Column 1 taken</td>
+<td>Action in Column 1 taken</td>
+<td>Action in Column 1 not taken</td>
+<td>Action in Column 1 taken</td>
+</tr>
+<tr>
+<td>#GP(0)</td>
+<td>Action in Column 1 not taken</td>
+<td>Action in Column 1 not taken</td>
+<td>Action in Column 1 taken</td>
+<td>Action in Column 1 not taken</td>
+</tr>
+</table>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Operands</th>
+<th>Bytes</th>
+<th colspan="2">Clocks</th>
+</tr>
+<tr>
+<td></td>
+<td>1</td>
+<td>7</td>
+<td>NP</td>
+</tr>
+</table>
+
+<h2>Flags</h2>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>ID</th>
+<td>unaffected</td>
+<th>DF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VIP</th>
+<td>unaffected</td>
+<th>IF</th>
+<td>sets</td>
+</tr>
+<tr>
+<th>VIF</th>
+<td>unaffected</td>
+<th>TF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>AC</th>
+<td>unaffected</td>
+<th>SF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VM</th>
+<td>unaffected</td>
+<th>ZF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>RF</th>
+<td>unaffected</td>
+<th>AF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>NT</th>
+<td>unaffected</td>
+<th>PF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>IOPL</th>
+<td>unaffected</td>
+<th>CF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>OF</th>
+<td>unaffected</td>
+</tr>
+</table>
+
+</div><!-- #body -->
+
+
+
+
+
+</div>
+</body>
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/sti.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+</html>

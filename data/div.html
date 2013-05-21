@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/div.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+<head>
+ <title>Intel Pentium Instruction Set Reference - DIV - Unsigned Divide</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+ <meta name="Author" content="jsimlo@yahoo.com (Medvedik)" />
+ <meta name="Robots" content="index,follow" />
+ <meta name="Keywords" content="intel, pentium, instruction, instructions, reference, asm, assembly, assmebler, cpu, 80386, 386, 80486, 486, 80x86, x86" />
+ <meta name="Description" content="Intel Pentium Instruction Set Reference - DIV - Unsigned Divide" />
+ <style type="text/css"><!--
+  @import 'style.css';
+ --></style>
+</head>
+<body>
+
+<a name="go-menu"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-body">Jump to body</a> ]</i>
+<hr />
+</div>
+
+<div id="menu">
+<div id="menu-in">
+
+<h1>Menu</h1>
+
+<h2>Intro</h2>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="architecture.html">Architecture Overview</a></li>
+<li><a href="conventions.html">Conventions</a></li>
+</ul>
+
+<h2>Instructions</h2>
+
+<div class="ilist">
+<a href="index.html#a">A</a>
+<a href="index.html#b">B</a>
+<a href="index.html#c">C</a>
+<a href="index.html#d">D</a>
+<a href="index.html#e">E</a>
+<a href="index.html#f">F</a>
+<a href="index.html#g">G</a>
+<a href="index.html#h">H</a>
+<a href="index.html#i">I</a>
+<a href="index.html#j">J</a>
+<a href="index.html#k">K</a>
+<a href="index.html#l">L</a>
+<a href="index.html#m">M</a>
+<a href="index.html#n">N</a>
+<a href="index.html#o">O</a>
+<a href="index.html#p">P</a>
+<a href="index.html#q">Q</a>
+<a href="index.html#r">R</a>
+<a href="index.html#s">S</a>
+<a href="index.html#t">T</a>
+<a href="index.html#u">U</a>
+<a href="index.html#v">V</a>
+<a href="index.html#w">W</a>
+<a href="index.html#x">X</a>
+<a href="index.html#y">Y</a>
+<a href="index.html#z">Z</a>
+</div>
+
+
+
+
+<div class="tools" align="center">
+<p>[<a href="#">jump to top</a>]</p>
+</div>
+
+</div><!-- #menu-in -->
+</div><!-- #menu -->
+<a name="go-body"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-menu">Jump to menu</a> ]</i>
+<hr />
+</div>
+
+<div id="body">
+
+<h1>Intel Pentium Instruction Set Reference</h1>
+
+<h1>DIV - Unsigned Divide</h1>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Code</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+<tr>
+<td nowrap="nowrap">F6 /6</td>
+<td nowrap="nowrap">DIV r/m8</td>
+<td>Unsigned divide AX by r/m8; AL = Quotient, AH = Remainder</td>
+</tr>
+<tr>
+<td nowrap="nowrap">F7 /6</td>
+<td nowrap="nowrap">DIV r/m16</td>
+<td>Unsigned divide DX:AX by r/m16; AX = Quotient, DX = Remainder</td>
+</tr>
+<tr>
+<td nowrap="nowrap">F7 /6</td>
+<td nowrap="nowrap">DIV r/m32</td>
+<td>Unsigned divide EDX:EAX by r/m32 doubleword; EAX = Quotient, EDX = Remainder</td>
+</tr>
+</table>
+
+<h2>Description</h2>
+
+<p>Divides (unsigned) the value in the AX register, DX:AX register pair, or EDX:EAX register pair (dividend) by the source operand (divisor) and stores the result in the AX (AH:AL), DX:AX, or EDX:EAX registers. The source operand can be a general-purpose register or a memory location. The action of this instruction depends on the operand size, as shown in the following table:</p>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Operand Size</th>
+<th>Dividend</th>
+<th>Divisor</th>
+<th>Quotient</th>
+<th>Remainder</th>
+<th>Maximum Quotient</th>
+</tr>
+<tr>
+<td>Word / Byte</td>
+<td>AX</td>
+<td>r/m8</td>
+<td>AL</td>
+<td>AH</td>
+<td>255</td>
+</tr>
+<tr>
+<td>Doubleword / Word</td>
+<td>DX:AX</td>
+<td>r/m16</td>
+<td>AX</td>
+<td>DX</td>
+<td>65,535</td>
+</tr>
+<tr>
+<td>Quadword / Doubleword</td>
+<td>EDX:EAX</td>
+<td>r/m32</td>
+<td>EAX</td>
+<td>EDX</td>
+<td>4,294,967,295 (2^32 - 1)</td>
+</tr>
+</table>
+
+<p>Non-integral results are truncated (chopped) towards 0. The remainder is always less than the divisor in magnitude. Overflow is indicated with the #DE (divide error) exception rather than with the CF flag.</p>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Operands</th>
+<th>Bytes</th>
+<th colspan="2">Clocks</th>
+</tr>
+<tr>
+<td>r8</td>
+<td>2</td>
+<td>17</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>r16</td>
+<td>2</td>
+<td>25</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>r32</td>
+<td>2</td>
+<td>41</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>mem8</td>
+<td>2 + d(0 - 2)</td>
+<td>17</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>mem16</td>
+<td>2 + d(0 - 2)</td>
+<td>25</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>mem32</td>
+<td>2 + d(0 - 2)</td>
+<td>41</td>
+<td>NP</td>
+</tr>
+</table>
+
+<p>Note:</p>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>implied dividend</th>
+<th></th>
+<th>operand</th>
+<th></th>
+<th>quotient</th>
+<th>remainder</th>
+</tr>
+<tr>
+<td>AX</td>
+<td>/</td>
+<td>byte</td>
+<td>=</td>
+<td>AL</td>
+<td>AH</td>
+</tr>
+<tr>
+<td>DX:AX</td>
+<td>/</td>
+<td>word</td>
+<td>=</td>
+<td>AX</td>
+<td>DX</td>
+</tr>
+<tr>
+<td>EDX:EAX</td>
+<td>/</td>
+<td>dword</td>
+<td>=</td>
+<td>EAX</td>
+<td>EDX</td>
+</tr>
+</table>
+
+<h2>Flags</h2>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>ID</th>
+<td>unaffected</td>
+<th>DF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VIP</th>
+<td>unaffected</td>
+<th>IF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VIF</th>
+<td>unaffected</td>
+<th>TF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>AC</th>
+<td>unaffected</td>
+<th>SF</th>
+<td>undefined</td>
+</tr>
+<tr>
+<th>VM</th>
+<td>unaffected</td>
+<th>ZF</th>
+<td>undefined</td>
+</tr>
+<tr>
+<th>RF</th>
+<td>unaffected</td>
+<th>AF</th>
+<td>undefined</td>
+</tr>
+<tr>
+<th>NT</th>
+<td>unaffected</td>
+<th>PF</th>
+<td>undefined</td>
+</tr>
+<tr>
+<th>IOPL</th>
+<td>unaffected</td>
+<th>CF</th>
+<td>undefined</td>
+</tr>
+<tr>
+<th>OF</th>
+<td>undefined</td>
+</tr>
+</table>
+
+</div><!-- #body -->
+
+
+
+
+
+</div>
+</body>
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/div.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+</html>

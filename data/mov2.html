@@ -1,0 +1,307 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/mov2.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+<head>
+ <title>Intel Pentium Instruction Set Reference - MOV - Move to/from Debug Registers</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+ <meta name="Author" content="jsimlo@yahoo.com (Medvedik)" />
+ <meta name="Robots" content="index,follow" />
+ <meta name="Keywords" content="intel, pentium, instruction, instructions, reference, asm, assembly, assmebler, cpu, 80386, 386, 80486, 486, 80x86, x86" />
+ <meta name="Description" content="Intel Pentium Instruction Set Reference - MOV - Move to/from Debug Registers" />
+ <style type="text/css"><!--
+  @import 'style.css';
+ --></style>
+</head>
+<body>
+
+<a name="go-menu"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-body">Jump to body</a> ]</i>
+<hr />
+</div>
+
+<div id="menu">
+<div id="menu-in">
+
+<h1>Menu</h1>
+
+<h2>Intro</h2>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="architecture.html">Architecture Overview</a></li>
+<li><a href="conventions.html">Conventions</a></li>
+</ul>
+
+<h2>Instructions</h2>
+
+<div class="ilist">
+<a href="index.html#a">A</a>
+<a href="index.html#b">B</a>
+<a href="index.html#c">C</a>
+<a href="index.html#d">D</a>
+<a href="index.html#e">E</a>
+<a href="index.html#f">F</a>
+<a href="index.html#g">G</a>
+<a href="index.html#h">H</a>
+<a href="index.html#i">I</a>
+<a href="index.html#j">J</a>
+<a href="index.html#k">K</a>
+<a href="index.html#l">L</a>
+<a href="index.html#m">M</a>
+<a href="index.html#n">N</a>
+<a href="index.html#o">O</a>
+<a href="index.html#p">P</a>
+<a href="index.html#q">Q</a>
+<a href="index.html#r">R</a>
+<a href="index.html#s">S</a>
+<a href="index.html#t">T</a>
+<a href="index.html#u">U</a>
+<a href="index.html#v">V</a>
+<a href="index.html#w">W</a>
+<a href="index.html#x">X</a>
+<a href="index.html#y">Y</a>
+<a href="index.html#z">Z</a>
+</div>
+
+
+
+
+<div class="tools" align="center">
+<p>[<a href="#">jump to top</a>]</p>
+</div>
+
+</div><!-- #menu-in -->
+</div><!-- #menu -->
+<a name="go-body"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-menu">Jump to menu</a> ]</i>
+<hr />
+</div>
+
+<div id="body">
+
+<h1>Intel Pentium Instruction Set Reference</h1>
+
+<h1>MOV - Move to/from Debug Registers</h1>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Code</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 21/ r</td>
+<td nowrap="nowrap">MOV r32, DR0</td>
+<td>Move debug register to r32</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 21/ r</td>
+<td nowrap="nowrap">MOV r32, DR1</td>
+<td>Move debug register to r32</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 21/ r</td>
+<td nowrap="nowrap">MOV r32, DR2</td>
+<td>Move debug register to r32</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 21/ r</td>
+<td nowrap="nowrap">MOV r32, DR3</td>
+<td>Move debug register to r32</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 21/ r</td>
+<td nowrap="nowrap">MOV r32, DR4</td>
+<td>Move debug register to r32</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 21/ r</td>
+<td nowrap="nowrap">MOV r32, DR5</td>
+<td>Move debug register to r32</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 21/ r</td>
+<td nowrap="nowrap">MOV r32, DR6</td>
+<td>Move debug register to r32</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 21/ r</td>
+<td nowrap="nowrap">MOV r32, DR7</td>
+<td>Move debug register to r32</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 23 / r</td>
+<td nowrap="nowrap">MOV DR0, r32</td>
+<td>Move r32 to debug register</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 23 / r</td>
+<td nowrap="nowrap">MOV DR1, r32</td>
+<td>Move r32 to debug register</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 23 / r</td>
+<td nowrap="nowrap">MOV DR2, r32</td>
+<td>Move r32 to debug register</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 23 / r</td>
+<td nowrap="nowrap">MOV DR3, r32</td>
+<td>Move r32 to debug register</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 23 / r</td>
+<td nowrap="nowrap">MOV DR4, r32</td>
+<td>Move r32 to debug register</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 23 / r</td>
+<td nowrap="nowrap">MOV DR5, r32</td>
+<td>Move r32 to debug register</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 23 / r</td>
+<td nowrap="nowrap">MOV DR6, r32</td>
+<td>Move r32 to debug register</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 23 / r</td>
+<td nowrap="nowrap">MOV DR7, r32</td>
+<td>Move r32 to debug register</td>
+</tr>
+</table>
+
+<h2>Description</h2>
+
+<p>Moves the contents of a debug register (DR0, DR1, DR2, DR3, DR4, DR5, DR6, or DR7) to a general-purpose register or vice versa. The operand size for these instructions is always 32 bits, regardless of the operand-size attribute. (See Chapter 14, Debugging and Performance Monitoring, of the Intel Architecture Software Developer's Manual, Volume 3, for a detailed description of the flags and fields in the debug registers.)</p>
+
+<p>The instructions must be executed at privilege level 0 or in real-address mode.</p>
+
+<p>When the debug extension (DE) flag in register CR4 is clear, these instructions operate on debug registers in a manner that is compatible with Intel386 and Intel486 processors. In this mode, references to DR4 and DR5 refer to DR6 and DR7, respectively. When the DE set in CR4 is set, attempts to reference DR4 and DR5 result in an undefined opcode (#UD) exception. (The CR4 register was added to the Intel Architecture beginning with the Pentium processor.)</p>
+
+<p>At the opcode level, the reg field within the ModR/M byte specifies which of the debug registers is loaded or read. The two bits in the mod field are always 11. The r/m field specifies the general-purpose register loaded or read.</p>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Operands</th>
+<th>Bytes</th>
+<th colspan="2">Clocks</th>
+</tr>
+<tr>
+<td>
+r32, cr32</td>
+<td>3</td>
+<td>4</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>
+cr32, r32</td>
+<td>3</td>
+<td>12/22 (cycles depend on which special register)</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>
+r32, dr32</td>
+<td>3</td>
+<td>2/12 (cycles depend on which special register)</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>
+dr32, r32</td>
+<td>3</td>
+<td>11/12 (cycles depend on which special register)</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>
+r32, tr32</td>
+<td>3</td>
+<td>-</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>
+tr32, r32</td>
+<td>3</td>
+<td>-</td>
+<td>NP</td>
+</tr>
+</table>
+
+<h2>Flags</h2>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>ID</th>
+<td>unaffected</td>
+<th>DF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VIP</th>
+<td>unaffected</td>
+<th>IF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VIF</th>
+<td>unaffected</td>
+<th>TF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>AC</th>
+<td>unaffected</td>
+<th>SF</th>
+<td>undefined</td>
+</tr>
+<tr>
+<th>VM</th>
+<td>unaffected</td>
+<th>ZF</th>
+<td>undefined</td>
+</tr>
+<tr>
+<th>RF</th>
+<td>unaffected</td>
+<th>AF</th>
+<td>undefined</td>
+</tr>
+<tr>
+<th>NT</th>
+<td>unaffected</td>
+<th>PF</th>
+<td>undefined</td>
+</tr>
+<tr>
+<th>IOPL</th>
+<td>unaffected</td>
+<th>CF</th>
+<td>undefined</td>
+</tr>
+<tr>
+<th>OF</th>
+<td>undefined</td>
+</tr>
+</table>
+
+</div><!-- #body -->
+
+
+
+
+
+</div>
+</body>
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/mov2.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+</html>

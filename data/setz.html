@@ -1,0 +1,347 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/setz.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+<head>
+ <title>Intel Pentium Instruction Set Reference - SETZ - Set Byte on Condition</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+ <meta name="Author" content="jsimlo@yahoo.com (Medvedik)" />
+ <meta name="Robots" content="index,follow" />
+ <meta name="Keywords" content="intel, pentium, instruction, instructions, reference, asm, assembly, assmebler, cpu, 80386, 386, 80486, 486, 80x86, x86" />
+ <meta name="Description" content="Intel Pentium Instruction Set Reference - SETZ - Set Byte on Condition" />
+ <style type="text/css"><!--
+  @import 'style.css';
+ --></style>
+</head>
+<body>
+
+<a name="go-menu"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-body">Jump to body</a> ]</i>
+<hr />
+</div>
+
+<div id="menu">
+<div id="menu-in">
+
+<h1>Menu</h1>
+
+<h2>Intro</h2>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="architecture.html">Architecture Overview</a></li>
+<li><a href="conventions.html">Conventions</a></li>
+</ul>
+
+<h2>Instructions</h2>
+
+<div class="ilist">
+<a href="index.html#a">A</a>
+<a href="index.html#b">B</a>
+<a href="index.html#c">C</a>
+<a href="index.html#d">D</a>
+<a href="index.html#e">E</a>
+<a href="index.html#f">F</a>
+<a href="index.html#g">G</a>
+<a href="index.html#h">H</a>
+<a href="index.html#i">I</a>
+<a href="index.html#j">J</a>
+<a href="index.html#k">K</a>
+<a href="index.html#l">L</a>
+<a href="index.html#m">M</a>
+<a href="index.html#n">N</a>
+<a href="index.html#o">O</a>
+<a href="index.html#p">P</a>
+<a href="index.html#q">Q</a>
+<a href="index.html#r">R</a>
+<a href="index.html#s">S</a>
+<a href="index.html#t">T</a>
+<a href="index.html#u">U</a>
+<a href="index.html#v">V</a>
+<a href="index.html#w">W</a>
+<a href="index.html#x">X</a>
+<a href="index.html#y">Y</a>
+<a href="index.html#z">Z</a>
+</div>
+
+
+
+
+<div class="tools" align="center">
+<p>[<a href="#">jump to top</a>]</p>
+</div>
+
+</div><!-- #menu-in -->
+</div><!-- #menu -->
+<a name="go-body"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-menu">Jump to menu</a> ]</i>
+<hr />
+</div>
+
+<div id="body">
+
+<h1>Intel Pentium Instruction Set Reference</h1>
+
+<h1>SETZ - Set Byte on Condition</h1>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Code</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 97</td>
+<td nowrap="nowrap">SETA r/m8</td>
+<td>Set byte if above (CF=0 and ZF=0)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 93</td>
+<td nowrap="nowrap">SETAE r/m8</td>
+<td>Set byte if above or equal (CF=0)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 92</td>
+<td nowrap="nowrap">SETB r/m8</td>
+<td>Set byte if below (CF=1)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 96</td>
+<td nowrap="nowrap">SETBE r/m8</td>
+<td>Set byte if below or equal (CF=1 or ZF=1)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 92</td>
+<td nowrap="nowrap">SETC r/m8</td>
+<td>Set if carry (CF=1)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 94</td>
+<td nowrap="nowrap">SETE r/m8</td>
+<td>Set byte if equal (ZF=1)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 9F</td>
+<td nowrap="nowrap">SETG r/m8</td>
+<td>Set byte if greater (ZF=0 and SF=OF)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 9D</td>
+<td nowrap="nowrap">SETGE r/m8</td>
+<td>Set byte if greater or equal (SF=OF)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 9C</td>
+<td nowrap="nowrap">SETL r/m8</td>
+<td>Set byte if less (SF&lt;&gt;OF)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 9E</td>
+<td nowrap="nowrap">SETLE r/m8</td>
+<td>Set byte if less or equal (ZF=1 or SF&lt;&gt;OF)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 96</td>
+<td nowrap="nowrap">SETNA r/m8</td>
+<td>Set byte if not above (CF=1 or ZF=1)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 92</td>
+<td nowrap="nowrap">SETNAE r/m8</td>
+<td>Set byte if not above or equal (CF=1)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 93</td>
+<td nowrap="nowrap">SETNB r/m8</td>
+<td>Set byte if not below (CF=0)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 97</td>
+<td nowrap="nowrap">SETNBE r/m8</td>
+<td>Set byte if not below or equal (CF=0 and ZF=0)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 93</td>
+<td nowrap="nowrap">SETNC r/m8</td>
+<td>Set byte if not carry (CF=0)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 95</td>
+<td nowrap="nowrap">SETNE r/m8</td>
+<td>Set byte if not equal (ZF=0)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 9E</td>
+<td nowrap="nowrap">SETNG r/m8</td>
+<td>Set byte if not greater (ZF=1 or SF&lt;&gt;OF)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 9C</td>
+<td nowrap="nowrap">SETNGE r/m8</td>
+<td>Set if not greater or equal (SF&lt;&gt;OF)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 9D</td>
+<td nowrap="nowrap">SETNL r/m8</td>
+<td>Set byte if not less (SF=OF)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 9F</td>
+<td nowrap="nowrap">SETNLE r/m8</td>
+<td>Set byte if not less or equal (ZF=0 and SF=OF)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 91</td>
+<td nowrap="nowrap">SETNO r/m8</td>
+<td>Set byte if not overflow (OF=0)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 9B</td>
+<td nowrap="nowrap">SETNP r/m8</td>
+<td>Set byte if not parity (PF=0)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 99</td>
+<td nowrap="nowrap">SETNS r/m8</td>
+<td>Set byte if not sign (SF=0)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 95</td>
+<td nowrap="nowrap">SETNZ r/m8</td>
+<td>Set byte if not zero (ZF=0)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 90</td>
+<td nowrap="nowrap">SETO r/m8</td>
+<td>Set byte if overflow (OF=1)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 9A</td>
+<td nowrap="nowrap">SETP r/m8</td>
+<td>Set byte if parity (PF=1)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 9A</td>
+<td nowrap="nowrap">SETPE r/m8</td>
+<td>Set byte if parity even (PF=1)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 9B</td>
+<td nowrap="nowrap">SETPO r/m8</td>
+<td>Set byte if parity odd (PF=0)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 98</td>
+<td nowrap="nowrap">SETS r/m8</td>
+<td>Set byte if sign (SF=1)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 94</td>
+<td nowrap="nowrap">SETZ r/m8</td>
+<td>Set byte if zero (ZF=1)</td>
+</tr>
+</table>
+
+<h2>Description</h2>
+
+<p>Set the destination operand to 0 or 1 depending on the settings of the status flags (CF, SF, OF, ZF, and PF) in the EFLAGS register. The destination operand points to a byte register or a byte in memory. The condition code suffix (cc) indicates the condition being tested for.</p>
+
+<p>The terms &quot;above&quot; and &quot;below&quot; are associated with the CF flag and refer to the relationship between two unsigned integer values. The terms &quot;greater&quot; and &quot;less&quot; are associated with the SF and OF flags and refer to the relationship between two signed integer values.</p>
+
+<p>Many of the SETcc instruction opcodes have alternate mnemonics. For example, the SETG (set byte if greater) and SETNLE (set if not less or equal) both have the same opcode and test for the same condition: ZF equals 0 and SF equals OF. These alternate mnemonics are provided to make code more intelligible. Appendix B, EFLAGS Condition Codes, in the Intel Architecture Software Developer's Manual, Volume 1, shows the alternate mnemonics for various test conditions.</p>
+
+<p>Some languages represent a logical one as an integer with all bits set. This representation can be obtained by choosing the logically opposite condition for the SETcc instruction, then decrementing the result. For example, to test for overflow, use the SETNO instruction, then decrement the result.</p>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Operands</th>
+<th>Bytes</th>
+<th colspan="2">Clocks</th>
+</tr>
+<tr>
+<td>r8</td>
+<td>3</td>
+<td>1/2</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>mem8</td>
+<td>3 + d(0 - 2)</td>
+<td>1/2</td>
+<td>NP</td>
+</tr>
+</table>
+
+<h2>Flags</h2>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>ID</th>
+<td>unaffected</td>
+<th>DF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VIP</th>
+<td>unaffected</td>
+<th>IF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VIF</th>
+<td>unaffected</td>
+<th>TF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>AC</th>
+<td>unaffected</td>
+<th>SF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VM</th>
+<td>unaffected</td>
+<th>ZF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>RF</th>
+<td>unaffected</td>
+<th>AF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>NT</th>
+<td>unaffected</td>
+<th>PF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>IOPL</th>
+<td>unaffected</td>
+<th>CF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>OF</th>
+<td>unaffected</td>
+</tr>
+</table>
+
+</div><!-- #body -->
+
+
+
+
+
+</div>
+</body>
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/setz.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+</html>

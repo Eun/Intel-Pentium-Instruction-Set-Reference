@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/rcl.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+<head>
+ <title>Intel Pentium Instruction Set Reference - RCL - Rotate Bits Left with CF</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+ <meta name="Author" content="jsimlo@yahoo.com (Medvedik)" />
+ <meta name="Robots" content="index,follow" />
+ <meta name="Keywords" content="intel, pentium, instruction, instructions, reference, asm, assembly, assmebler, cpu, 80386, 386, 80486, 486, 80x86, x86" />
+ <meta name="Description" content="Intel Pentium Instruction Set Reference - RCL - Rotate Bits Left with CF" />
+ <style type="text/css"><!--
+  @import 'style.css';
+ --></style>
+</head>
+<body>
+
+<a name="go-menu"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-body">Jump to body</a> ]</i>
+<hr />
+</div>
+
+<div id="menu">
+<div id="menu-in">
+
+<h1>Menu</h1>
+
+<h2>Intro</h2>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="architecture.html">Architecture Overview</a></li>
+<li><a href="conventions.html">Conventions</a></li>
+</ul>
+
+<h2>Instructions</h2>
+
+<div class="ilist">
+<a href="index.html#a">A</a>
+<a href="index.html#b">B</a>
+<a href="index.html#c">C</a>
+<a href="index.html#d">D</a>
+<a href="index.html#e">E</a>
+<a href="index.html#f">F</a>
+<a href="index.html#g">G</a>
+<a href="index.html#h">H</a>
+<a href="index.html#i">I</a>
+<a href="index.html#j">J</a>
+<a href="index.html#k">K</a>
+<a href="index.html#l">L</a>
+<a href="index.html#m">M</a>
+<a href="index.html#n">N</a>
+<a href="index.html#o">O</a>
+<a href="index.html#p">P</a>
+<a href="index.html#q">Q</a>
+<a href="index.html#r">R</a>
+<a href="index.html#s">S</a>
+<a href="index.html#t">T</a>
+<a href="index.html#u">U</a>
+<a href="index.html#v">V</a>
+<a href="index.html#w">W</a>
+<a href="index.html#x">X</a>
+<a href="index.html#y">Y</a>
+<a href="index.html#z">Z</a>
+</div>
+
+
+
+
+<div class="tools" align="center">
+<p>[<a href="#">jump to top</a>]</p>
+</div>
+
+</div><!-- #menu-in -->
+</div><!-- #menu -->
+<a name="go-body"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-menu">Jump to menu</a> ]</i>
+<hr />
+</div>
+
+<div id="body">
+
+<h1>Intel Pentium Instruction Set Reference</h1>
+
+<h1>RCL - Rotate Bits Left with CF</h1>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Code</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+<tr>
+<td nowrap="nowrap">D0 /2</td>
+<td nowrap="nowrap">RCL r/m8, 1</td>
+<td>Rotate 9 bits (CF, r/m8) left once</td>
+</tr>
+<tr>
+<td nowrap="nowrap">D2 /2</td>
+<td nowrap="nowrap">RCL r/m8, CL</td>
+<td>Rotate 9 bits (CF, r/m8) left CL times</td>
+</tr>
+<tr>
+<td nowrap="nowrap">C0 /2 ib</td>
+<td nowrap="nowrap">RCL r/m8, imm8</td>
+<td>Rotate 9 bits (CF, r/m8) left imm8 times</td>
+</tr>
+<tr>
+<td nowrap="nowrap">D1 /2</td>
+<td nowrap="nowrap">RCL r/m16, 1</td>
+<td>Rotate 17 bits (CF, r/m16) left once</td>
+</tr>
+<tr>
+<td nowrap="nowrap">D3 /2</td>
+<td nowrap="nowrap">RCL r/m16, CL</td>
+<td>Rotate 17 bits (CF, r/m16) left CL times</td>
+</tr>
+<tr>
+<td nowrap="nowrap">C1 /2 ib</td>
+<td nowrap="nowrap">RCL r/m16, imm8</td>
+<td>Rotate 17 bits (CF, r/m16) left imm8 times</td>
+</tr>
+<tr>
+<td nowrap="nowrap">D1 /2</td>
+<td nowrap="nowrap">RCL r/m32, 1</td>
+<td>Rotate 33 bits (CF, r/m32) left once</td>
+</tr>
+<tr>
+<td nowrap="nowrap">D3 /2</td>
+<td nowrap="nowrap">RCL r/m32, CL</td>
+<td>Rotate 33 bits (CF, r/m32) left CL times</td>
+</tr>
+<tr>
+<td nowrap="nowrap">C1 /2 ib</td>
+<td nowrap="nowrap">RCL r/m32, imm8</td>
+<td>Rotate 33 bits (CF, r/m32) left imm8 times</td>
+</tr>
+</table>
+
+<h2>Description</h2>
+
+<p>Shifts (rotates) the bits of the first operand (destination operand) the number of bit positions specified in the second operand (count operand) and stores the result in the destination operand. The destination operand can be a register or a memory location; the count operand is an unsigned integer that can be an immediate or a value in the CL register. The processor restricts the count to a number between 0 and 31 by masking all the bits in the count operand except the 5 least-significant bits.</p>
+
+<p>The rotate left (<a href="rol.html">ROL</a>) and rotate through carry left (RCL) instructions shift all the bits toward more-significant bit positions, except for the most-significant bit, which is rotated to the least-significant bit location (see Figure 6-10 in the Intel Architecture Software Developer's Manual, Vo l u me 1 ). The rotate right (<a href="ror.html">ROR</a>) and rotate through carry right (<a href="rcr.html">RCR</a>) instructions shift all the bits toward less significant bit positions, except for the least-significant bit, which is rotated to the most-significant bit location (see Figure 6-10 in the Intel Architecture Software Developer's Manual, Volume 1).</p>
+
+<p>The RCL and <a href="rcr.html">RCR</a> instructions include the CF flag in the rotation. The RCL instruction shifts the CF flag into the least-significant bit and shifts the most-significant bit into the CF flag (see Figure 6-10 in the Intel Architecture Software Developer's Manual, Volume 1). The <a href="rcr.html">RCR</a> instruction shifts the CF flag into the most-significant bit and shifts the least-significant bit into the CF flag (see Figure 6-10 in the Intel Architecture Software Developer's Manual, Volume 1). For the <a href="rol.html">ROL</a> and <a href="ror.html">ROR</a> instructions, the original value of the CF flag is not a part of the result, but the CF flag receives a copy of the bit that was shifted from one end to the other.</p>
+
+<p>The OF flag is defined only for the 1-bit rotates; it is undefined in all other cases (except that a zero-bit rotate does nothing, that is affects no flags). For left rotates, the OF flag is set to the exclusive OR of the CF bit (after the rotate) and the most-significant bit of the result. For right rotates, the OF flag is set to the exclusive OR of the two most-significant bits of the result.</p>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Operands</th>
+<th>Bytes</th>
+<th colspan="2">Clocks</th>
+</tr>
+<tr>
+<td>reg, 1</td>
+<td>2</td>
+<td>1</td>
+<td>PU</td>
+</tr>
+<tr>
+<td>mem, 1</td>
+<td>2 + d(0, 2)</td>
+<td>3</td>
+<td>PU</td>
+</tr>
+<tr>
+<td>reg, cl</td>
+<td>2</td>
+<td>7-24</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>mem, cl</td>
+<td>2 + d(0, 2)</td>
+<td>9-26</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>reg, imm</td>
+<td>3</td>
+<td>8-25</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>mem, imm</td>
+<td>3 + d(0, 2)</td>
+<td>10-27</td>
+<td>NP</td>
+</tr>
+</table>
+
+<h2>Flags</h2>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>ID</th>
+<td>unaffected</td>
+<th>DF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VIP</th>
+<td>unaffected</td>
+<th>IF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VIF</th>
+<td>unaffected</td>
+<th>TF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>AC</th>
+<td>unaffected</td>
+<th>SF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VM</th>
+<td>unaffected</td>
+<th>ZF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>RF</th>
+<td>unaffected</td>
+<th>AF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>NT</th>
+<td>unaffected</td>
+<th>PF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>IOPL</th>
+<td>unaffected</td>
+<th>CF</th>
+<td>contains the value of the bit shifted into it</td>
+</tr>
+<tr>
+<th>OF</th>
+<td>affected only for single-bit rotates (see &quot;Description&quot; above); it is undefined for multi-bit rotates</td>
+</tr>
+</table>
+
+</div><!-- #body -->
+
+
+
+
+
+</div>
+</body>
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/rcl.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+</html>

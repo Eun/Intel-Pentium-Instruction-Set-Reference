@@ -1,0 +1,395 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/imul.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+<head>
+ <title>Intel Pentium Instruction Set Reference - IMUL - Signed Multiply</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+ <meta name="Author" content="jsimlo@yahoo.com (Medvedik)" />
+ <meta name="Robots" content="index,follow" />
+ <meta name="Keywords" content="intel, pentium, instruction, instructions, reference, asm, assembly, assmebler, cpu, 80386, 386, 80486, 486, 80x86, x86" />
+ <meta name="Description" content="Intel Pentium Instruction Set Reference - IMUL - Signed Multiply" />
+ <style type="text/css"><!--
+  @import 'style.css';
+ --></style>
+</head>
+<body>
+
+<a name="go-menu"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-body">Jump to body</a> ]</i>
+<hr />
+</div>
+
+<div id="menu">
+<div id="menu-in">
+
+<h1>Menu</h1>
+
+<h2>Intro</h2>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="architecture.html">Architecture Overview</a></li>
+<li><a href="conventions.html">Conventions</a></li>
+</ul>
+
+<h2>Instructions</h2>
+
+<div class="ilist">
+<a href="index.html#a">A</a>
+<a href="index.html#b">B</a>
+<a href="index.html#c">C</a>
+<a href="index.html#d">D</a>
+<a href="index.html#e">E</a>
+<a href="index.html#f">F</a>
+<a href="index.html#g">G</a>
+<a href="index.html#h">H</a>
+<a href="index.html#i">I</a>
+<a href="index.html#j">J</a>
+<a href="index.html#k">K</a>
+<a href="index.html#l">L</a>
+<a href="index.html#m">M</a>
+<a href="index.html#n">N</a>
+<a href="index.html#o">O</a>
+<a href="index.html#p">P</a>
+<a href="index.html#q">Q</a>
+<a href="index.html#r">R</a>
+<a href="index.html#s">S</a>
+<a href="index.html#t">T</a>
+<a href="index.html#u">U</a>
+<a href="index.html#v">V</a>
+<a href="index.html#w">W</a>
+<a href="index.html#x">X</a>
+<a href="index.html#y">Y</a>
+<a href="index.html#z">Z</a>
+</div>
+
+
+
+
+<div class="tools" align="center">
+<p>[<a href="#">jump to top</a>]</p>
+</div>
+
+</div><!-- #menu-in -->
+</div><!-- #menu -->
+<a name="go-body"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-menu">Jump to menu</a> ]</i>
+<hr />
+</div>
+
+<div id="body">
+
+<h1>Intel Pentium Instruction Set Reference</h1>
+
+<h1>IMUL - Signed Multiply</h1>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Code</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+<tr>
+<td nowrap="nowrap">F6 /5</td>
+<td nowrap="nowrap">IMUL r/m8</td>
+<td>AX = AL * r/m byte</td>
+</tr>
+<tr>
+<td nowrap="nowrap">F7 /5</td>
+<td nowrap="nowrap">IMUL r/m16</td>
+<td>DX:AX = AX * r/m word</td>
+</tr>
+<tr>
+<td nowrap="nowrap">F7 /5</td>
+<td nowrap="nowrap">IMUL r/m32</td>
+<td>EDX:EAX = EAX * r/m doubleword</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F AF / r</td>
+<td nowrap="nowrap">IMUL r16, r/m16</td>
+<td>word register = word register * r/m word</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F AF / r</td>
+<td nowrap="nowrap">IMUL r32, r/m32</td>
+<td>doubleword register = doubleword register * r/m doubleword</td>
+</tr>
+<tr>
+<td nowrap="nowrap">6B / r ib</td>
+<td nowrap="nowrap">IMUL r16, r/m16, imm8</td>
+<td>word register = r/m16 * sign-extended immediate byte</td>
+</tr>
+<tr>
+<td nowrap="nowrap">6B / r ib</td>
+<td nowrap="nowrap">IMUL r32, r/m32, imm8</td>
+<td>doubleword register = r/m32 * sign-extended immediate byte</td>
+</tr>
+<tr>
+<td nowrap="nowrap">6B / r ib</td>
+<td nowrap="nowrap">IMUL r16, imm8</td>
+<td>word register = word register * sign-extended immediate byte</td>
+</tr>
+<tr>
+<td nowrap="nowrap">6B / r ib</td>
+<td nowrap="nowrap">IMUL r32, imm8</td>
+<td>doubleword register = doubleword register * sign-extended immediate byte</td>
+</tr>
+<tr>
+<td nowrap="nowrap">69 / r iw</td>
+<td nowrap="nowrap">IMUL r16, r/m16, imm16</td>
+<td>word register = r/m16 * immediate word</td>
+</tr>
+<tr>
+<td nowrap="nowrap">69 / r id</td>
+<td nowrap="nowrap">IMUL r32,r /m32, imm32</td>
+<td>doubleword register = r/m32 * immediate doubleword</td>
+</tr>
+<tr>
+<td nowrap="nowrap">69 / r iw</td>
+<td nowrap="nowrap">IMUL r16, imm16</td>
+<td>word register = r/m16 * immediate word</td>
+</tr>
+<tr>
+<td nowrap="nowrap">69 / r id</td>
+<td nowrap="nowrap">IMUL r32, imm32</td>
+<td>doubleword register = r/m32 * immediate doubleword</td>
+</tr>
+</table>
+
+<h2>Description</h2>
+
+<p>Performs a signed multiplication of two operands. This instruction has three forms, depending on the number of operands.</p>
+
+<p>One-operand form. This form is identical to that used by the MUL instruction. Here, the source operand (in a general-purpose register or memory location) is multiplied by the value in the AL, AX, or EAX register (depending on the operand size) and the product is stored in the AX, DX:AX, or EDX:EAX registers, respectively.</p>
+
+<p>Two-operand form. With this form the destination operand (the first operand) is multiplied by the source operand (second operand). The destination operand is a general-purpose register and the source operand is an immediate value, a general-purpose register, or a memory location. The product is then stored in the destination operand location.</p>
+
+<p>Three-operand form. This form requires a destination operand (the first operand) and two source operands (the second and the third operands). Here, the first source operand (which can be a general-purpose register or a memory location) is multiplied by the second source operand (an immediate value). The product is then stored in the destination operand (a general-purpose register).</p>
+
+<p>When an immediate value is used as an operand, it is sign-extended to the length of the destination operand format.</p>
+
+<p>The CF and OF flags are set when significant bits are carried into the upper half of the result. The CF and OF flags are cleared when the result fits exactly in the lower half of the result.</p>
+
+<p>The three forms of the IMUL instruction are similar in that the length of the product is calculated to twice the length of the operands. With the one-operand form, the product is stored exactly in the destination. With the two- and three- operand forms, however, result is truncated to the length of the destination before it is stored in the destination register. Because of this truncation, the CF or OF flag should be tested to ensure that no significant bits are lost.</p>
+
+<p>The two- and three-operand forms may also be used with unsigned operands because the lower half of the product is the same regardless if the operands are signed or unsigned. The CF and OF flags, however, cannot be used to determine if the upper half of the result is non-zero.</p>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Accumulator Operands</th>
+<th>Multiplies Bytes</th>
+<th colspan="2">Clocks</th>
+</tr>
+<tr>
+<td>r8</td>
+<td>2</td>
+<td>11</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>r16</td>
+<td>2</td>
+<td>11</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>r32</td>
+<td>2</td>
+<td>10</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>mem8</td>
+<td>2 + d(0 - 2)</td>
+<td>11</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>mem16</td>
+<td>2 + d(0 - 2)</td>
+<td>11</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>mem32</td>
+<td>2 + d(0 - 2)</td>
+<td>10</td>
+<td>NP</td>
+</tr>
+</table>
+
+<p>Note:</p>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>implied multiplicand</th>
+<th colspan="2">operand (multiplier)</th>
+<th colspan="2">result</th>
+</tr>
+<tr>
+<td>AL</td>
+<td>*</td>
+<td>byte</td>
+<td>=</td>
+<td>AX</td>
+</tr>
+<tr>
+<td>AX</td>
+<td>*</td>
+<td>word</td>
+<td>=</td>
+<td>DX:AX</td>
+</tr>
+<tr>
+<td>EAX</td>
+<td>*</td>
+<td>dword</td>
+<td>=</td>
+<td>EDX:EAX</td>
+</tr>
+</table>
+
+<h4>2 and 3 operand Multiplies</h4>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Operands</th>
+<th>Bytes</th>
+<th colspan="2">Clocks</th>
+</tr>
+<tr>
+<td>r16, imm</td>
+<td>2 + i(1, 2)</td>
+<td>10</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>r32, imm</td>
+<td>2 + i(1, 2)</td>
+<td>10</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>r16, r16, imm</td>
+<td>2 + i(1, 2)</td>
+<td>10</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>r32, r32, imm</td>
+<td>2 + i(1, 2)</td>
+<td>10</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>r16, m16, imm</td>
+<td>2 + d(0 - 2) + i(1, 2)</td>
+<td>10</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>r32, m32, imm</td>
+<td>2 + d(0 - 2) + i(1, 2)</td>
+<td>10</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>r16, r16</td>
+<td>2 + i(1, 2)</td>
+<td>10</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>r32, r32</td>
+<td>2 + i(1, 2)</td>
+<td>10</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>r16, m16</td>
+<td>2 + d(0 - 2) + i(1, 2)</td>
+<td>10</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>r32, m32</td>
+<td>2 + d(0 - 2) + i(1, 2)</td>
+<td>10</td>
+<td>NP</td>
+</tr>
+</table>
+
+<h2>Flags</h2>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>ID</th>
+<td>unaffected</td>
+<th>DF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VIP</th>
+<td>unaffected</td>
+<th>IF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VIF</th>
+<td>unaffected</td>
+<th>TF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>AC</th>
+<td>unaffected</td>
+<th>SF</th>
+<td>undefined</td>
+</tr>
+<tr>
+<th>VM</th>
+<td>unaffected</td>
+<th>ZF</th>
+<td>undefined</td>
+</tr>
+<tr>
+<th>RF</th>
+<td>unaffected</td>
+<th>AF</th>
+<td>undefined</td>
+</tr>
+<tr>
+<th>NT</th>
+<td>unaffected</td>
+<th>PF</th>
+<td>undefined</td>
+</tr>
+<tr>
+<th>IOPL</th>
+<td>unaffected</td>
+<th>CF</th>
+<td>For the one operand form of the instruction, sets when significant bits are carried into the upper half of the result and cleared when the result fits exactly in the lower half of the result. For the two- and three-operand forms of the instruction, sets when the result must be truncated to fit in the destination operand size and cleared when the result fits exactly in the destination operand size</td>
+</tr>
+<tr>
+<th>OF</th>
+<td>For the one operand form of the instruction, sets when significant bits are carried into the upper half of the result and cleared when the result fits exactly in the lower half of the result. For the two- and three-operand forms of the instruction, sets when the result must be truncated to fit in the destination operand size and cleared when the result fits exactly in the destination operand size</td>
+</tr>
+</table>
+
+</div><!-- #body -->
+
+
+
+
+
+</div>
+</body>
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/imul.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+</html>

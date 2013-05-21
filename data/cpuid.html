@@ -1,0 +1,622 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/cpuid.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+<head>
+ <title>Intel Pentium Instruction Set Reference - CPUID - CPU Identification</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+ <meta name="Author" content="jsimlo@yahoo.com (Medvedik)" />
+ <meta name="Robots" content="index,follow" />
+ <meta name="Keywords" content="intel, pentium, instruction, instructions, reference, asm, assembly, assmebler, cpu, 80386, 386, 80486, 486, 80x86, x86" />
+ <meta name="Description" content="Intel Pentium Instruction Set Reference - CPUID - CPU Identification" />
+ <style type="text/css"><!--
+  @import 'style.css';
+ --></style>
+</head>
+<body>
+
+<a name="go-menu"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-body">Jump to body</a> ]</i>
+<hr />
+</div>
+
+<div id="menu">
+<div id="menu-in">
+
+<h1>Menu</h1>
+
+<h2>Intro</h2>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="architecture.html">Architecture Overview</a></li>
+<li><a href="conventions.html">Conventions</a></li>
+</ul>
+
+<h2>Instructions</h2>
+
+<div class="ilist">
+<a href="index.html#a">A</a>
+<a href="index.html#b">B</a>
+<a href="index.html#c">C</a>
+<a href="index.html#d">D</a>
+<a href="index.html#e">E</a>
+<a href="index.html#f">F</a>
+<a href="index.html#g">G</a>
+<a href="index.html#h">H</a>
+<a href="index.html#i">I</a>
+<a href="index.html#j">J</a>
+<a href="index.html#k">K</a>
+<a href="index.html#l">L</a>
+<a href="index.html#m">M</a>
+<a href="index.html#n">N</a>
+<a href="index.html#o">O</a>
+<a href="index.html#p">P</a>
+<a href="index.html#q">Q</a>
+<a href="index.html#r">R</a>
+<a href="index.html#s">S</a>
+<a href="index.html#t">T</a>
+<a href="index.html#u">U</a>
+<a href="index.html#v">V</a>
+<a href="index.html#w">W</a>
+<a href="index.html#x">X</a>
+<a href="index.html#y">Y</a>
+<a href="index.html#z">Z</a>
+</div>
+
+
+
+
+<div class="tools" align="center">
+<p>[<a href="#">jump to top</a>]</p>
+</div>
+
+</div><!-- #menu-in -->
+</div><!-- #menu -->
+<a name="go-body"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-menu">Jump to menu</a> ]</i>
+<hr />
+</div>
+
+<div id="body">
+
+<h1>Intel Pentium Instruction Set Reference</h1>
+
+<h1>CPUID - CPU Identification</h1>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Code</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+<tr>
+<td nowrap="nowrap">0F A2</td>
+<td nowrap="nowrap">CPUID</td>
+<td>EAX = Processor identification information</td>
+</tr>
+</table>
+
+<h2>Description</h2>
+
+<p>Provides processor identification information in registers EAX, EBX, ECX, and EDX. This information identifies Intel as the vendor, gives the family, model, and stepping of processor, feature information, and cache information. An input value loaded into the EAX register determines what information is returned.</p>
+
+<h4>Information Returned by CPUID Instruction</h4>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Initial EAX </th>
+<th>Value</th>
+<th>Information Provided about the Processor</th>
+</tr>
+<tr>
+<td rowspan="4">0</td>
+<td>EAX</td>
+<td>Maximum CPUID Input Value (2 for the Pentium &reg; Pro processor and 1 for the Pentium processor and the later versions of Intel486&trade; processor that support the CPUID instruction)</td>
+</tr>
+<tr>
+<td>EBX</td>
+<td>&quot;Genu&quot;</td>
+</tr>
+<tr>
+<td>ECX</td>
+<td>&quot;ntel&quot;</td>
+</tr>
+<tr>
+<td>EDX</td>
+<td>&quot;ineI&quot;</td>
+</tr>
+<tr>
+<td rowspan="4">1</td>
+<td>EAX</td>
+<td>Version Information (Type, Family, Model, and Stepping ID)</td>
+</tr>
+<tr>
+<td>EBX</td>
+<td>Reserved</td>
+</tr>
+<tr>
+<td>ECX</td>
+<td>Reserved</td>
+</tr>
+<tr>
+<td>EDX</td>
+<td>Feature Information</td>
+</tr>
+<tr>
+<td rowspan="4">2</td>
+<td>EAX</td>
+<td>Cache and TLB Information</td>
+</tr>
+<tr>
+<td>EBX</td>
+<td>Cache and TLB Information</td>
+</tr>
+<tr>
+<td>ECX</td>
+<td>Cache and TLB Information</td>
+</tr>
+<tr>
+<td>EDX</td>
+<td>Cache and TLB Information</td>
+</tr>
+</table>
+
+<p>The CPUID instruction can be executed at any privilege level to serialize instruction execution. Serializing instruction execution guarantees that any modifications to flags, registers, and memory for previous instructions are completed before the next instruction is fetched and executed (see &quot;Serializing Instructions&quot; in Chapter 7 of the Intel Architecture Software Developer's Manual, Volume 3).</p>
+
+<p>When the input value in register EAX is 0, the processor returns the highest value the CPUID instruction recognizes in the EAX register (see Table 3-4). A vendor identification string is returned in the EBX, EDX, and ECX registers. For Intel processors, the vendor identification string is &quot;GenuineIntel&quot; as follows:</p>
+
+<pre>
+EBX = 756e6547h (* &quot;Genu&quot;, with G in the low nibble of BL *)
+EDX = 49656e69h (* &quot;ineI&quot;, with i in the low nibble of DL *)
+ECX = 6c65746eh (* &quot;ntel&quot;, with n in the low nibble of CL *)
+</pre>
+
+<p>When the input value is 1, the processor returns version information in the EAX register and feature information in the EDX register.</p>
+
+<p>The version information consists of an Intel Architecture family identifier, a model identifier, a stepping ID, and a processor type. The model, family, and processor type for the first processor in the Intel Pentium Pro family is as follows:</p>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<td>Model</td>
+<td>&mdash;</td>
+<td>0001B</td>
+</tr>
+<tr>
+<td>Family</td>
+<td>&mdash;</td>
+<td>0110B</td>
+</tr>
+<tr>
+<td>Processor Type</td>
+<td>&mdash;</td>
+<td>00B</td>
+</tr>
+</table>
+
+<p>See AP-485, Intel Processor Identification and the CPUID Instruction (Order Number 241618), the Intel Pentium &reg; Pro Processor Specification Update (Order Number 242689), and the Intel Pentium &reg; Processor Specification Update (Order Number 242480) for more information on identifying earlier Intel Architecture processors.</p>
+
+<p>The available processor types: (Intel releases information on stepping IDs as needed.)</p>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Type</th>
+<th>Encoding</th>
+</tr>
+<tr>
+<td>Original OEM Processor</td>
+<td>00B</td>
+</tr>
+<tr>
+<td>Intel OverDrive &reg; Processor</td>
+<td>01B</td>
+</tr>
+<tr>
+<td>Dual processor</td>
+<td>*10B</td>
+</tr>
+<tr>
+<td>Intel reserved.</td>
+<td>11B</td>
+</tr>
+</table>
+
+<p>The encoding of the feature flags in the EDX register: (A feature flag set to 1 indicates the corresponding feature is supported. Software should identify Intel as the vendor to properly interpret the feature flags.)</p>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Bit</th>
+<th>Feature</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>0</td>
+<td>FPU &mdash; Floating-Point Unit on Chip</td>
+<td>Processor contains an FPU and executes the Intel 387 instruction set.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>VME &mdash; Virtual-8086 Mode Enhancements</td>
+<td>
+Processor supports the following virtual-8086 mode enhancements:
+<ul>
+<li>CR4.VME bit enables virtual-8086 mode extensions.</li>
+<li>CR4.PVI bit enables protected-mode virtual interrupts.</li>
+<li>Expansion of the TSS with the software indirection bitmap.</li>
+<li>EFLAGS.VIF bit (virtual interrupt flag).</li>
+<li>EFLAGS.VIP bit (virtual interrupt pending flag).</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td>DE &mdash; Debugging Extensions</td>
+<td>Processor supports I/O breakpoints, including the CR4.DE bit for enabling debug extensions and optional trapping of access to the DR4 and DR5 registers.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>PSE &mdash; Page Size Extensions</td>
+<td>Processor supports 4-Mbyte pages, including the CR4.PSE bit for enabling page size extensions, the modified bit in page directory entries (PDEs), page directory entries, and page table entries (PTEs).</td>
+</tr>
+<tr>
+<td>4</td>
+<td>TSC &mdash; Time Stamp Counter</td>
+<td>Processor supports the RDTSC (read time stamp counter) instruction, including the CR4.TSD bit that, along with the CPL, controls whether the time stamp counter can be read.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>MSR &mdash; Model Specific Registers</td>
+<td>Processor supports the RDMSR (read model-specific register) and WRMSR (write model-specific register) instructions.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>PAE &mdash; Physical Address Extension</td>
+<td>Processor supports physical addresses greater than 32 bits, the extended page-table-entry format, an extra level in the page translation tables, and 2-MByte pages. The CR4.PAE bit enables this feature. The number of address bits is implementation specific. The Pentium &reg; Pro processor supports 36 bits of addressing when the PAE bit is set.</td>
+</tr>
+<tr>
+<td>7</td>
+<td>MCE &mdash; Machine Check Exception</td>
+<td>Processor supports the CR4.MCE bit, enabling machine check exceptions. However, this feature does not define the model-specific implementations of machine-check error logging, reporting, or processor shutdowns. Machine-check exception handlers might have to check the processor version to do model-specific processing of the exception or check for the presence of the standard machine-check feature.</td>
+</tr>
+<tr>
+<td>8</td>
+<td>CX8 &mdash; CMPXCHG8B Instruction</td>
+<td>Processor supports the CMPXCHG8B (compare and exchange 8 bytes) instruction.</td>
+</tr>
+<tr>
+<td>9</td>
+<td>APIC</td>
+<td>Processor contains an on-chip Advanced Programmable Interrupt Controller (APIC) and it has been enabled and is available for use.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Reserved</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>Reserved</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>MTRR &mdash; Memory Type Range Registers</td>
+<td>Processor supports machine-specific memory-type range registers (MTRRs). The MTRRs contains bit fields that indicate the processor's MTRR capabilities, including which memory types the processor supports, the number of variable MTRRs the processor supports, and whether the processor supports fixed MTRRs.</td>
+</tr>
+<tr>
+<td>13</td>
+<td>PGE &mdash; PTE Global Flag</td>
+<td>Processor supports the CR4.PGE flag enabling the global bit in both PTDEs and PTEs. These bits are used to indicate translation lookaside buffer (TLB) entries that are common to different tasks and need not be flushed when control register CR3 is written.</td>
+</tr>
+<tr>
+<td>14</td>
+<td>MCA &mdash; Machine Check Architecture</td>
+<td>Processor supports the MCG_CAP (machine check global capability) MSR. The MCG_CAP register indicates how many banks of error reporting MSRs the processor supports.</td>
+</tr>
+<tr>
+<td>15</td>
+<td>CMOV &mdash; Conditional Move and Compare Instructions</td>
+<td>Processor supports the CMOV cc instruction and, if the FPU feature flag (bit 0) is also set, supports the FCMOV cc and FCOMI instructions.</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Reserved</td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td>Reserved</td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td>Reserved</td>
+<td></td>
+</tr>
+<tr>
+<td>19</td>
+<td>Reserved</td>
+<td></td>
+</tr>
+<tr>
+<td>20</td>
+<td>Reserved</td>
+<td></td>
+</tr>
+<tr>
+<td>21</td>
+<td>Reserved</td>
+<td></td>
+</tr>
+<tr>
+<td>22</td>
+<td>Reserved</td>
+<td></td>
+</tr>
+<tr>
+<td>23</td>
+<td>MMX&trade; Technology</td>
+<td>Processor supports the MMX instruction set. These instructions operate in parallel on multiple data elements (8 bytes, 4 words, or 2 doublewords) packed into quadword registers or memory locations.</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Reserved</td>
+<td></td>
+</tr>
+<tr>
+<td>25</td>
+<td>Reserved</td>
+<td></td>
+</tr>
+<tr>
+<td>26</td>
+<td>Reserved</td>
+<td></td>
+</tr>
+<tr>
+<td>27</td>
+<td>Reserved</td>
+<td></td>
+</tr>
+<tr>
+<td>28</td>
+<td>Reserved</td>
+<td></td>
+</tr>
+<tr>
+<td>29</td>
+<td>Reserved</td>
+<td></td>
+</tr>
+<tr>
+<td>30</td>
+<td>Reserved</td>
+<td></td>
+</tr>
+<tr>
+<td>31</td>
+<td>Reserved</td>
+<td></td>
+</tr>
+</table>
+
+<p>When the input value is 2, the processor returns information about the processor's internal caches and TLBs in the EAX, EBX, ECX, and EDX registers. The encoding of these registers is as follows:</p>
+
+<ul>
+<li>The least-significant byte in register EAX (register AL) indicates the number of times the CPUID instruction must be executed with an input value of 2 to get a complete description of the processor's caches and TLBs. The Pentium &reg; Pro family of processors will return a 1.</li>
+<li>The most significant bit (bit 31) of each register indicates whether the register contains valid information (cleared to 0) or is reserved (set to 1).</li>
+<li>If a register contains valid information, the information is contained in 1 byte descriptors. Table 3-7 shows the encoding of these descriptors.</li>
+</ul>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Descriptor Value</th>
+<th>Cache or TLB Description</th>
+</tr>
+<tr>
+<td>00H</td>
+<td>Null descriptor</td>
+</tr>
+<tr>
+<td>01H</td>
+<td>Instruction TLB: 4K-Byte Pages, 4-way set associative, 32 entries</td>
+</tr>
+<tr>
+<td>02H</td>
+<td>Instruction TLB: 4M-Byte Pages, 4-way set associative, 4 entries</td>
+</tr>
+<tr>
+<td>03H</td>
+<td>Data TLB: 4K-Byte Pages, 4-way set associative, 64 entries</td>
+</tr>
+<tr>
+<td>04H</td>
+<td>Data TLB: 4M-Byte Pages, 4-way set associative, 8 entries</td>
+</tr>
+<tr>
+<td>06H</td>
+<td>Instruction cache: 8K Bytes, 4-way set associative, 32 byte line size</td>
+</tr>
+<tr>
+<td>08H</td>
+<td>Instruction cache: 16K Bytes, 4-way set associative, 32 byte line size</td>
+</tr>
+<tr>
+<td>0AH</td>
+<td>Data cache: 8K Bytes, 2-way set associative, 32 byte line size</td>
+</tr>
+<tr>
+<td>0CH</td>
+<td>Data cache: 16K Bytes, 2-way set associative, 32 byte line size</td>
+</tr>
+<tr>
+<td>41H</td>
+<td>Unified cache: 128K Bytes, 4-way set associative, 32 byte line size</td>
+</tr>
+<tr>
+<td>42H</td>
+<td>Unified cache: 256K Bytes, 4-way set associative, 32 byte line size</td>
+</tr>
+<tr>
+<td>43H</td>
+<td>Unified cache: 512K Bytes, 4-way set associative, 32 byte line size</td>
+</tr>
+<tr>
+<td>44H</td>
+<td>Unified cache: 1M Byte, 4-way set associative, 32 byte line size</td>
+</tr>
+</table>
+
+<p>The first member of the Pentium Pro processor family will return the following information about caches and TLBs when the CPUID instruction is executed with an input value of 2:</p>
+
+<pre>
+EAX = 03 02 01 01H
+EBX = 0H
+ECX = 0H
+EDX = 06 04 0A 42H
+</pre>
+
+<p>These values are interpreted as follows:</p>
+
+<ul>
+<li>The least-significant byte (byte 0) of register EAX is set to 01H, indicating that the CPUID instruction needs to be executed only once with an input value of 2 to retrieve complete information about the processor's caches and TLBs.</li>
+<li>The most-significant bit of all four registers (EAX, EBX, ECX, and EDX) is set to 0, indicating that each register contains valid 1-byte descriptors.</li>
+<li>
+Bytes 1, 2, and 3 of register EAX indicate that the processor contains the following:
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<td>01H</td>
+<td>&mdash;</td>
+<td>A 32-entry instruction TLB (4-way set associative) for mapping 4-KByte pages.</td>
+</tr>
+<tr>
+<td>02H</td>
+<td>&mdash;</td>
+<td>A 4-entry instruction TLB (4-way set associative) for mapping 4-MByte pages.</td>
+</tr>
+<tr>
+<td>03H</td>
+<td>&mdash;</td>
+<td>A 64-entry data TLB (4-way set associative) for mapping 4-KByte pages.</td>
+</tr>
+</table>
+
+</li>
+<li>The descriptors in registers EBX and ECX are valid, but contain null descriptors.</li>
+<li>
+Bytes 0, 1, 2, and 3 of register EDX indicate that the processor contains the following:
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<td>42H</td>
+<td>&mdash;</td>
+<td>A 256-KByte unified cache (the L2 cache), 4-way set associative, with a 32-byte cache line size.</td>
+</tr>
+<tr>
+<td>0AH</td>
+<td>&mdash;</td>
+<td>An 8-KByte data cache (the L1 data cache), 2-way set associative, with a 32-byte cache line size.</td>
+</tr>
+<tr>
+<td>04H</td>
+<td>&mdash;</td>
+<td>An 8-entry data TLB (4-way set associative) for mapping 4M-byte pages.</td>
+</tr>
+<tr>
+<td>06H</td>
+<td>&mdash;</td>
+<td>An 8-KByte instruction cache (the L1 instruction cache), 4-way set associative, with a 32-byte cache line size.</td>
+</tr>
+</table>
+
+</li>
+</ul>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Operands</th>
+<th>Bytes</th>
+<th colspan="2">Clocks</th>
+</tr>
+<tr>
+<td></td>
+<td>2</td>
+<td>14</td>
+<td>NP</td>
+</tr>
+</table>
+
+<h2>Flags</h2>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>ID</th>
+<td>unaffected</td>
+<th>DF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VIP</th>
+<td>unaffected</td>
+<th>IF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VIF</th>
+<td>unaffected</td>
+<th>TF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>AC</th>
+<td>unaffected</td>
+<th>SF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VM</th>
+<td>unaffected</td>
+<th>ZF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>RF</th>
+<td>unaffected</td>
+<th>AF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>NT</th>
+<td>unaffected</td>
+<th>PF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>IOPL</th>
+<td>unaffected</td>
+<th>CF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>OF</th>
+<td>unaffected</td>
+</tr>
+</table>
+
+</div><!-- #body -->
+
+
+
+
+
+</div>
+</body>
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/cpuid.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+</html>

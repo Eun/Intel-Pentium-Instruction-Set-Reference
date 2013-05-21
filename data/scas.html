@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/scas.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+<head>
+ <title>Intel Pentium Instruction Set Reference - SCAS - Scan String</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+ <meta name="Author" content="jsimlo@yahoo.com (Medvedik)" />
+ <meta name="Robots" content="index,follow" />
+ <meta name="Keywords" content="intel, pentium, instruction, instructions, reference, asm, assembly, assmebler, cpu, 80386, 386, 80486, 486, 80x86, x86" />
+ <meta name="Description" content="Intel Pentium Instruction Set Reference - SCAS - Scan String" />
+ <style type="text/css"><!--
+  @import 'style.css';
+ --></style>
+</head>
+<body>
+
+<a name="go-menu"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-body">Jump to body</a> ]</i>
+<hr />
+</div>
+
+<div id="menu">
+<div id="menu-in">
+
+<h1>Menu</h1>
+
+<h2>Intro</h2>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="architecture.html">Architecture Overview</a></li>
+<li><a href="conventions.html">Conventions</a></li>
+</ul>
+
+<h2>Instructions</h2>
+
+<div class="ilist">
+<a href="index.html#a">A</a>
+<a href="index.html#b">B</a>
+<a href="index.html#c">C</a>
+<a href="index.html#d">D</a>
+<a href="index.html#e">E</a>
+<a href="index.html#f">F</a>
+<a href="index.html#g">G</a>
+<a href="index.html#h">H</a>
+<a href="index.html#i">I</a>
+<a href="index.html#j">J</a>
+<a href="index.html#k">K</a>
+<a href="index.html#l">L</a>
+<a href="index.html#m">M</a>
+<a href="index.html#n">N</a>
+<a href="index.html#o">O</a>
+<a href="index.html#p">P</a>
+<a href="index.html#q">Q</a>
+<a href="index.html#r">R</a>
+<a href="index.html#s">S</a>
+<a href="index.html#t">T</a>
+<a href="index.html#u">U</a>
+<a href="index.html#v">V</a>
+<a href="index.html#w">W</a>
+<a href="index.html#x">X</a>
+<a href="index.html#y">Y</a>
+<a href="index.html#z">Z</a>
+</div>
+
+
+
+
+<div class="tools" align="center">
+<p>[<a href="#">jump to top</a>]</p>
+</div>
+
+</div><!-- #menu-in -->
+</div><!-- #menu -->
+<a name="go-body"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-menu">Jump to menu</a> ]</i>
+<hr />
+</div>
+
+<div id="body">
+
+<h1>Intel Pentium Instruction Set Reference</h1>
+
+<h1>SCAS - Scan String</h1>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Code</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+<tr>
+<td nowrap="nowrap">AE</td>
+<td nowrap="nowrap">SCAS m8</td>
+<td>Compare AL with byte at ES:(E)DI and set status flags</td>
+</tr>
+<tr>
+<td nowrap="nowrap">AF</td>
+<td nowrap="nowrap">SCAS m16</td>
+<td>Compare AX with word at ES:(E)DI and set status flags</td>
+</tr>
+<tr>
+<td nowrap="nowrap">AF</td>
+<td nowrap="nowrap">SCAS m32</td>
+<td>Compare EAX with doubleword at ES(E)DI and set status flags</td>
+</tr>
+<tr>
+<td nowrap="nowrap">AE</td>
+<td nowrap="nowrap">SCASB</td>
+<td>Compare AL with byte at ES:(E)DI and set status flags</td>
+</tr>
+<tr>
+<td nowrap="nowrap">AF</td>
+<td nowrap="nowrap">SCASW</td>
+<td>Compare AX with word at ES:(E)DI and set status flags</td>
+</tr>
+<tr>
+<td nowrap="nowrap">AF</td>
+<td nowrap="nowrap">SCASD</td>
+<td>Compare EAX with doubleword at ES:(E)DI and set status flags</td>
+</tr>
+</table>
+
+<h2>Description</h2>
+
+<p>Compares the byte, word, or double word specified with the memory operand with the value in the AL, AX, or EAX register, and sets the status flags in the EFLAGS register according to the results. The memory operand address is read from either the ES:EDI or the ES:DI registers (depending on the address-size attribute of the instruction, 32 or 16, respectively). The ES segment cannot be overridden with a segment override prefix.</p>
+
+<p>At the assembly-code level, two forms of this instruction are allowed: the &quot;explicit-operands&quot; form and the &quot;no-operands&quot; form. The explicit-operand form (specified with the SCAS mnemonic) allows the memory operand to be specified explicitly. Here, the memory operand should be a symbol that indicates the size and location of the operand value. The register operand is then automatically selected to match the size of the memory operand (the AL register for byte comparisons, AX for word comparisons, and EAX for doubleword comparisons). This explicit-operand form is provided to allow documentation; however, note that the documentation provided by this form can be misleading. That is, the memory operand symbol must specify the correct type (size) of the operand (byte, word, or doubleword), but it does not have to specify the correct location. The location is always specified by the ES:(E)DI registers, which must be loaded correctly before the compare string instruction is executed.</p>
+
+<p>The no-operands form provides &quot;short forms&quot; of the byte, word, and doubleword versions of the SCAS instructions. Here also ES:(E)DI is assumed to be the memory operand and the AL, AX, or EAX register is assumed to be the register operand. The size of the two operands is selected with the mnemonic: SCASB (byte comparison), SCASW (word comparison), or SCASD (doubleword comparison).</p>
+
+<p>After the comparison, the (E)DI register is incremented or decremented automatically according to the setting of the DF flag in the EFLAGS register. (If the DF flag is 0, the (E)DI register is incremented; if the DF flag is 1, the (E)DI register is decremented.) The (E)DI register is incremented or decremented by 1 for byte operations, by 2 for word operations, or by 4 for double-word operations.</p>
+
+<p>The SCAS, SCASB, SCASW, and SCASD instructions can be preceded by the <a href="rep.html">REP</a> prefix for block comparisons of ECX bytes, words, or doublewords. More often, however, these instructions will be used in a LOOP construct that takes some action based on the setting of the status flags before the next comparison is made. See &quot;<a href="rep.html">REP</a>/<a href="rep.html">REPE</a>/<a href="rep.html">REPZ</a>/<a href="rep.html">REPNE</a>/<a href="rep.html">REPNZ</a> &mdash; Repeat String Operation Prefix&quot; in this chapter for a description of the <a href="rep.html">REP</a> prefix.</p>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Operands</th>
+<th>Bytes</th>
+<th colspan="2">Clocks</th>
+</tr>
+<tr>
+<td>scasb</td>
+<td>1</td>
+<td>4</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>scasw</td>
+<td>1</td>
+<td>4</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>scasd</td>
+<td>1</td>
+<td>4</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>repe/ repz/ repne/ repnz scasb</td>
+<td>2</td>
+<td>8 + 4( count of bytes, words or dwords)</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>repe/ repz/ repne/ repnz scasw</td>
+<td>2</td>
+<td>8 + 4( count of bytes, words or dwords)</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>repe/ repz/ repne/ repnz scasd</td>
+<td>2</td>
+<td>8 + 4( count of bytes, words or dwords)</td>
+<td>NP</td>
+</tr>
+</table>
+
+<h2>Flags</h2>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>ID</th>
+<td>unaffected</td>
+<th>DF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VIP</th>
+<td>unaffected</td>
+<th>IF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VIF</th>
+<td>unaffected</td>
+<th>TF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>AC</th>
+<td>unaffected</td>
+<th>SF</th>
+<td>sets according to the temporary result of the comparison</td>
+</tr>
+<tr>
+<th>VM</th>
+<td>unaffected</td>
+<th>ZF</th>
+<td>sets according to the temporary result of the comparison</td>
+</tr>
+<tr>
+<th>RF</th>
+<td>unaffected</td>
+<th>AF</th>
+<td>sets according to the temporary result of the comparison</td>
+</tr>
+<tr>
+<th>NT</th>
+<td>unaffected</td>
+<th>PF</th>
+<td>sets according to the temporary result of the comparison</td>
+</tr>
+<tr>
+<th>IOPL</th>
+<td>unaffected</td>
+<th>CF</th>
+<td>sets according to the temporary result of the comparison</td>
+</tr>
+<tr>
+<th>OF</th>
+<td>sets according to the temporary result of the comparison</td>
+</tr>
+</table>
+
+</div><!-- #body -->
+
+
+
+
+
+</div>
+</body>
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/scas.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+</html>

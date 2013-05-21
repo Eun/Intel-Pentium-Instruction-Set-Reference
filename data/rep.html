@@ -1,0 +1,423 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/rep.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+<head>
+ <title>Intel Pentium Instruction Set Reference - REP - Repeat String Operation Prefix</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+ <meta name="Author" content="jsimlo@yahoo.com (Medvedik)" />
+ <meta name="Robots" content="index,follow" />
+ <meta name="Keywords" content="intel, pentium, instruction, instructions, reference, asm, assembly, assmebler, cpu, 80386, 386, 80486, 486, 80x86, x86" />
+ <meta name="Description" content="Intel Pentium Instruction Set Reference - REP - Repeat String Operation Prefix" />
+ <style type="text/css"><!--
+  @import 'style.css';
+ --></style>
+</head>
+<body>
+
+<a name="go-menu"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-body">Jump to body</a> ]</i>
+<hr />
+</div>
+
+<div id="menu">
+<div id="menu-in">
+
+<h1>Menu</h1>
+
+<h2>Intro</h2>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="architecture.html">Architecture Overview</a></li>
+<li><a href="conventions.html">Conventions</a></li>
+</ul>
+
+<h2>Instructions</h2>
+
+<div class="ilist">
+<a href="index.html#a">A</a>
+<a href="index.html#b">B</a>
+<a href="index.html#c">C</a>
+<a href="index.html#d">D</a>
+<a href="index.html#e">E</a>
+<a href="index.html#f">F</a>
+<a href="index.html#g">G</a>
+<a href="index.html#h">H</a>
+<a href="index.html#i">I</a>
+<a href="index.html#j">J</a>
+<a href="index.html#k">K</a>
+<a href="index.html#l">L</a>
+<a href="index.html#m">M</a>
+<a href="index.html#n">N</a>
+<a href="index.html#o">O</a>
+<a href="index.html#p">P</a>
+<a href="index.html#q">Q</a>
+<a href="index.html#r">R</a>
+<a href="index.html#s">S</a>
+<a href="index.html#t">T</a>
+<a href="index.html#u">U</a>
+<a href="index.html#v">V</a>
+<a href="index.html#w">W</a>
+<a href="index.html#x">X</a>
+<a href="index.html#y">Y</a>
+<a href="index.html#z">Z</a>
+</div>
+
+
+
+
+<div class="tools" align="center">
+<p>[<a href="#">jump to top</a>]</p>
+</div>
+
+</div><!-- #menu-in -->
+</div><!-- #menu -->
+<a name="go-body"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-menu">Jump to menu</a> ]</i>
+<hr />
+</div>
+
+<div id="body">
+
+<h1>Intel Pentium Instruction Set Reference</h1>
+
+<h1>REP - Repeat String Operation Prefix</h1>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Code</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+<tr>
+<td nowrap="nowrap">F3 6C</td>
+<td nowrap="nowrap">REP INS r/m8, DX</td>
+<td>Input (E)CX bytes from port DX into ES:[(E)DI]</td>
+</tr>
+<tr>
+<td nowrap="nowrap">F3 6D</td>
+<td nowrap="nowrap">REP INS r/m16, DX</td>
+<td>Input (E)CX words from port DX into ES:[(E)DI]</td>
+</tr>
+<tr>
+<td nowrap="nowrap">F3 6D</td>
+<td nowrap="nowrap">REP INS r/m32, DX</td>
+<td>Input (E)CX doublewords from port DX into ES:[(E)DI]</td>
+</tr>
+<tr>
+<td nowrap="nowrap">F3 A4</td>
+<td nowrap="nowrap">REP MOVS m8, m8</td>
+<td>Move (E)CX bytes from DS:[(E)SI] to ES:[(E)DI]</td>
+</tr>
+<tr>
+<td nowrap="nowrap">F3 A5</td>
+<td nowrap="nowrap">REP MOVS m16, m16</td>
+<td>Move (E)CX words from DS:[(E)SI] to ES:[(E)DI]</td>
+</tr>
+<tr>
+<td nowrap="nowrap">F3 A5</td>
+<td nowrap="nowrap">REP MOVS m32, m32</td>
+<td>Move (E)CX doublewords from DS:[(E)SI] to ES:[(E)DI]</td>
+</tr>
+<tr>
+<td nowrap="nowrap">F3 6E</td>
+<td nowrap="nowrap">REP OUTS DX, r/m8</td>
+<td>Output (E)CX bytes from DS:[(E)SI] to port DX</td>
+</tr>
+<tr>
+<td nowrap="nowrap">F3 6F</td>
+<td nowrap="nowrap">REP OUTS DX, r/m16</td>
+<td>Output (E)CX words from DS:[(E)SI] to port DX</td>
+</tr>
+<tr>
+<td nowrap="nowrap">F3 6F</td>
+<td nowrap="nowrap">REP OUTS DX, r/m32</td>
+<td>Output (E)CX doublewords from DS:[(E)SI] to port DX</td>
+</tr>
+<tr>
+<td nowrap="nowrap">F3 AC</td>
+<td nowrap="nowrap">REP LODS AL</td>
+<td>Load (E)CX bytes from DS:[(E)SI] to AL</td>
+</tr>
+<tr>
+<td nowrap="nowrap">F3 AD</td>
+<td nowrap="nowrap">REP LODS AX</td>
+<td>Load (E)CX words from DS:[(E)SI] to AX</td>
+</tr>
+<tr>
+<td nowrap="nowrap">F3 AD</td>
+<td nowrap="nowrap">REP LODS EAX</td>
+<td>Load (E)CX doublewords from DS:[(E)SI] to EAX</td>
+</tr>
+<tr>
+<td nowrap="nowrap">F3 AA</td>
+<td nowrap="nowrap">REP STOS m8</td>
+<td>Fill (E)CX bytes at ES:[(E)DI] with AL</td>
+</tr>
+<tr>
+<td nowrap="nowrap">F3 AB</td>
+<td nowrap="nowrap">REP STOS m16</td>
+<td>Fill (E)CX words at ES:[(E)DI] with AX</td>
+</tr>
+<tr>
+<td nowrap="nowrap">F3 AB</td>
+<td nowrap="nowrap">REP STOS m32</td>
+<td>Fill (E)CX doublewords at ES:[(E)DI] with EAX</td>
+</tr>
+<tr>
+<td nowrap="nowrap">F3 A6</td>
+<td nowrap="nowrap">REPE CMPS m8, m8</td>
+<td>Find nonmatching bytes in ES:[(E)DI] and DS:[(E)SI]</td>
+</tr>
+<tr>
+<td nowrap="nowrap">F3 A7</td>
+<td nowrap="nowrap">REPE CMPS m16, m16</td>
+<td>Find nonmatching words in ES:[(E)DI] and DS:[(E)SI]</td>
+</tr>
+<tr>
+<td nowrap="nowrap">F3 A7</td>
+<td nowrap="nowrap">REPE CMPS m32, m32</td>
+<td>Find nonmatching doublewords in ES:[(E)DI] and DS:[(E)SI]</td>
+</tr>
+<tr>
+<td nowrap="nowrap">F3 AE</td>
+<td nowrap="nowrap">REPE SCAS m8</td>
+<td>Find non-AL byte starting at ES:[(E)DI]</td>
+</tr>
+<tr>
+<td nowrap="nowrap">F3 AF</td>
+<td nowrap="nowrap">REPE SCAS m16</td>
+<td>Find non-AX word starting at ES:[(E)DI]</td>
+</tr>
+<tr>
+<td nowrap="nowrap">F3 AF</td>
+<td nowrap="nowrap">REPE SCAS m32</td>
+<td>Find non-EAX doubleword starting at ES:[(E)DI]</td>
+</tr>
+<tr>
+<td nowrap="nowrap">F2 A6</td>
+<td nowrap="nowrap">REPNE CMPS m8, m8</td>
+<td>Find matching bytes in ES:[(E)DI] and DS:[(E)SI]</td>
+</tr>
+<tr>
+<td nowrap="nowrap">F2 A7</td>
+<td nowrap="nowrap">REPNE CMPS m16, m16</td>
+<td>Find matching words in ES:[(E)DI] and DS:[(E)SI]</td>
+</tr>
+<tr>
+<td nowrap="nowrap">F2 A7</td>
+<td nowrap="nowrap">REPNE CMPS m32, m32</td>
+<td>Find matching doublewords in ES:[(E)DI] and DS:[(E)SI]</td>
+</tr>
+<tr>
+<td nowrap="nowrap">F2 AE</td>
+<td nowrap="nowrap">REPNE SCAS m8</td>
+<td>Find AL, starting at ES:[(E)DI]</td>
+</tr>
+<tr>
+<td nowrap="nowrap">F2 AF</td>
+<td nowrap="nowrap">REPNE SCAS m16</td>
+<td>Find AX, starting at ES:[(E)DI]</td>
+</tr>
+<tr>
+<td nowrap="nowrap">F2 AF</td>
+<td nowrap="nowrap">REPNE SCAS m32</td>
+<td>Find EAX, starting at ES:[(E)DI]</td>
+</tr>
+</table>
+
+<h2>Description</h2>
+
+<p>Repeats a string instruction the number of times specified in the count register ((E)CX) or until the indicated condition of the ZF flag is no longer met. The REP (repeat), REPE (repeat while equal), REPNE (repeat while not equal), REPZ (repeat while zero), and REPNZ (repeat while not zero) mnemonics are prefixes that can be added to one of the string instructions. The REP prefix can be added to the <a href="ins.html">INS</a>, <a href="outs.html">OUTS</a>, <a href="movs.html">MOVS</a>, <a href="lods.html">LODS</a>, and <a href="stos.html">STOS</a> instructions, and the REPE, REPNE, REPZ, and REPNZ prefixes can be added to the <a href="cmps.html">CMPS</a> and <a href="scas.html">SCAS</a> instructions. (The REPZ and REPNZ prefixes are synonymous forms of the REPE and REPNE prefixes, respectively.) The behavior of the REP prefix is undefined when used with non-string instructions.</p>
+
+<p>The REP prefixes apply only to one string instruction at a time. To repeat a block of instructions, use the <a href="loop.html">LOOP</a> instruction or another looping construct.</p>
+
+<p>All of these repeat prefixes cause the associated instruction to be repeated until the count in register (E)CX is decremented to 0 (see the following table). (If the current address-size attribute is 32, register ECX is used as a counter, and if the address-size attribute is 16, the CX register is used.) The REPE, REPNE, REPZ, and REPNZ prefixes also check the state of the ZF flag after each iteration and terminate the repeat loop if the ZF flag is not in the specified state. When both termination conditions are tested, the cause of a repeat termination can be determined either by testing the (E)CX register with a <a href="jz.html">JECXZ</a> instruction or by testing the ZF flag with a <a href="jz.html">JZ</a>, <a href="jz.html">JNZ</a>, and <a href="jz.html">JNE</a> instruction.</p>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Repeat Prefix</th>
+<th>Termination Condition 1</th>
+<th>Termination Condition 2</th>
+</tr>
+<tr>
+<td>REP</td>
+<td>ECX=0</td>
+<td>None</td>
+</tr>
+<tr>
+<td>REPE/REPZ</td>
+<td>ECX=0</td>
+<td>ZF=0</td>
+</tr>
+<tr>
+<td>REPNE/REPNZ</td>
+<td>ECX=0</td>
+<td>ZF=1</td>
+</tr>
+</table>
+
+<p>When the REPE/REPZ and REPNE/REPNZ prefixes are used, the ZF flag does not require initialization because both the <a href="cmps.html">CMPS</a> and <a href="scas.html">SCAS</a> instructions affect the ZF flag according to the results of the comparisons they make.</p>
+
+<p>A repeating string operation can be suspended by an exception or interrupt. When this happens, the state of the registers is preserved to allow the string operation to be resumed upon a return from the exception or interrupt handler. The source and destination registers point to the next string elements to be operated on, the EIP register points to the string instruction, and the ECX register has the value it held following the last successful iteration of the instruction. This mechanism allows long string operations to proceed without affecting the interrupt response time of the system.</p>
+
+<p>When a fault occurs during the execution of a <a href="cmps.html">CMPS</a> or <a href="scas.html">SCAS</a> instruction that is prefixed with REPE or REPNE, the EFLAGS value is restored to the state prior to the execution of the instruction. Since the <a href="scas.html">SCAS</a> and <a href="cmps.html">CMPS</a> instructions do not use EFLAGS as an input, the processor can resume the instruction after the page fault handler.</p>
+
+<p>Use the REP <a href="ins.html">INS</a> and REP <a href="outs.html">OUTS</a> instructions with caution. Not all I/O ports can handle the rate at which these instructions execute.</p>
+
+<p>A REP <a href="stos.html">STOS</a> instruction is the fastest way to initialize a large block of memory.</p>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Operands</td>
+<th>Bytes</th>
+<th colspan="2">Clocks</th>
+</tr>
+<tr>
+<td nowrap="nowrap">rep movsb</td>
+<td>2</td>
+<td>3 + ( count of bytes, words or dwords)</td>
+<td>NP</td>
+</tr>
+<tr>
+<td nowrap="nowrap">rep movsw</td>
+<td>2</td>
+<td>3 + ( count of bytes, words or dwords)</td>
+<td>NP</td>
+</tr>
+<tr>
+<td nowrap="nowrap">rep movsd</td>
+<td>2</td>
+<td>3 + ( count of bytes, words or dwords)</td>
+<td>NP</td>
+</tr>
+<tr>
+<td nowrap="nowrap">rep stosb</td>
+<td>2</td>
+<td>3 + ( count of bytes, words or dwords)</td>
+<td>NP</td>
+</tr>
+<tr>
+<td nowrap="nowrap">rep stosw</td>
+<td>2</td>
+<td>3 + ( count of bytes, words or dwords)</td>
+<td>NP</td>
+</tr>
+<tr>
+<td nowrap="nowrap">rep stosd</td>
+<td>2</td>
+<td>3 + ( count of bytes, words or dwords)</td>
+<td>NP</td>
+</tr>
+<tr>
+<td nowrap="nowrap">repe/repz/repne/repnz cmpsb</td>
+<td>2</td>
+<td>9 + 4 (count of bytes, words or dwords)</td>
+<td>NP</td>
+</tr>
+<tr>
+<td nowrap="nowrap">repe/repz/repne/repnz cmpsw</td>
+<td>2</td>
+<td>9 + 4 ( count of bytes, words or dwords)</td>
+<td>NP</td>
+</tr>
+<tr>
+<td nowrap="nowrap">repe/repz/repne/repnz cmpsd</td>
+<td>2</td>
+<td>9 + 4 ( count of bytes, words or dwords)</td>
+<td>NP</td>
+</tr>
+<tr>
+<td nowrap="nowrap">repe/repz/repne/repnz scasb</td>
+<td>2</td>
+<td>8 + 4 (count of bytes, words or dwords)</td>
+<td>NP</td>
+</tr>
+<tr>
+<td nowrap="nowrap">repe/repz/repne/repnz scasw</td>
+<td>2</td>
+<td>8 + 4 ( count of bytes, words or dwords)</td>
+<td>NP</td>
+</tr>
+<tr>
+<td nowrap="nowrap">repe/repz/repne/repnz scasd</td>
+<td>2</td>
+<td>8 + 4 ( count of bytes, words or dwords)</td>
+<td>NP</td>
+</tr>
+</table>
+
+<h2>Flags</h2>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>ID</th>
+<td>unaffected</td>
+<th>DF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VIP</th>
+<td>unaffected</td>
+<th>IF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VIF</th>
+<td>unaffected</td>
+<th>TF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>AC</th>
+<td>unaffected</td>
+<th>SF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VM</th>
+<td>unaffected</td>
+<th>ZF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>RF</th>
+<td>unaffected</td>
+<th>AF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>NT</th>
+<td>unaffected</td>
+<th>PF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>IOPL</th>
+<td>unaffected</td>
+<th>CF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>OF</th>
+<td>unaffected</td>
+</tr>
+</table>
+
+</div><!-- #body -->
+
+
+
+
+
+</div>
+</body>
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/rep.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+</html>

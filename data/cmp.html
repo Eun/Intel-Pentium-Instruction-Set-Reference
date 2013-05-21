@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/cmp.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+<head>
+ <title>Intel Pentium Instruction Set Reference - CMP - Compare Two Operands</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+ <meta name="Author" content="jsimlo@yahoo.com (Medvedik)" />
+ <meta name="Robots" content="index,follow" />
+ <meta name="Keywords" content="intel, pentium, instruction, instructions, reference, asm, assembly, assmebler, cpu, 80386, 386, 80486, 486, 80x86, x86" />
+ <meta name="Description" content="Intel Pentium Instruction Set Reference - CMP - Compare Two Operands" />
+ <style type="text/css"><!--
+  @import 'style.css';
+ --></style>
+</head>
+<body>
+
+<a name="go-menu"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-body">Jump to body</a> ]</i>
+<hr />
+</div>
+
+<div id="menu">
+<div id="menu-in">
+
+<h1>Menu</h1>
+
+<h2>Intro</h2>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="architecture.html">Architecture Overview</a></li>
+<li><a href="conventions.html">Conventions</a></li>
+</ul>
+
+<h2>Instructions</h2>
+
+<div class="ilist">
+<a href="index.html#a">A</a>
+<a href="index.html#b">B</a>
+<a href="index.html#c">C</a>
+<a href="index.html#d">D</a>
+<a href="index.html#e">E</a>
+<a href="index.html#f">F</a>
+<a href="index.html#g">G</a>
+<a href="index.html#h">H</a>
+<a href="index.html#i">I</a>
+<a href="index.html#j">J</a>
+<a href="index.html#k">K</a>
+<a href="index.html#l">L</a>
+<a href="index.html#m">M</a>
+<a href="index.html#n">N</a>
+<a href="index.html#o">O</a>
+<a href="index.html#p">P</a>
+<a href="index.html#q">Q</a>
+<a href="index.html#r">R</a>
+<a href="index.html#s">S</a>
+<a href="index.html#t">T</a>
+<a href="index.html#u">U</a>
+<a href="index.html#v">V</a>
+<a href="index.html#w">W</a>
+<a href="index.html#x">X</a>
+<a href="index.html#y">Y</a>
+<a href="index.html#z">Z</a>
+</div>
+
+
+
+
+<div class="tools" align="center">
+<p>[<a href="#">jump to top</a>]</p>
+</div>
+
+</div><!-- #menu-in -->
+</div><!-- #menu -->
+<a name="go-body"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-menu">Jump to menu</a> ]</i>
+<hr />
+</div>
+
+<div id="body">
+
+<h1>Intel Pentium Instruction Set Reference</h1>
+
+<h1>CMP - Compare Two Operands</h1>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Code</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+<tr>
+<td nowrap="nowrap">3C ib</td>
+<td nowrap="nowrap">CMP AL, imm8</td>
+<td>Compare imm8 with AL</td>
+</tr>
+<tr>
+<td nowrap="nowrap">3D iw</td>
+<td nowrap="nowrap">CMP AX, imm16</td>
+<td>Compare imm16 with AX</td>
+</tr>
+<tr>
+<td nowrap="nowrap">3D id</td>
+<td nowrap="nowrap">CMP EAX, imm32</td>
+<td>Compare imm32 with EAX</td>
+</tr>
+<tr>
+<td nowrap="nowrap">80 /7 ib</td>
+<td nowrap="nowrap">CMP r/m8, imm8</td>
+<td>Compare imm8 with r/m8</td>
+</tr>
+<tr>
+<td nowrap="nowrap">81 /7 iw</td>
+<td nowrap="nowrap">CMP r/m16, imm16</td>
+<td>Compare imm16 with r/m16</td>
+</tr>
+<tr>
+<td nowrap="nowrap">81 /7 id</td>
+<td nowrap="nowrap">CMP r/m32, imm32</td>
+<td>Compare imm32 with r/m32</td>
+</tr>
+<tr>
+<td nowrap="nowrap">83 /7 ib</td>
+<td nowrap="nowrap">CMP r/m16, imm8</td>
+<td>Compare imm8 with r/m16</td>
+</tr>
+<tr>
+<td nowrap="nowrap">83 /7 ib</td>
+<td nowrap="nowrap">CMP r/m32, imm8</td>
+<td>Compare imm8 with r/m32</td>
+</tr>
+<tr>
+<td nowrap="nowrap">38 / r</td>
+<td nowrap="nowrap">CMP r/m8, r8</td>
+<td>Compare r8 with r/m8</td>
+</tr>
+<tr>
+<td nowrap="nowrap">39 / r</td>
+<td nowrap="nowrap">CMP r/m16, r16</td>
+<td>Compare r16 with r/m16</td>
+</tr>
+<tr>
+<td nowrap="nowrap">39 / r</td>
+<td nowrap="nowrap">CMP r/m32, r32</td>
+<td>Compare r32 with r/m32</td>
+</tr>
+<tr>
+<td nowrap="nowrap">3A / r</td>
+<td nowrap="nowrap">CMP r8, r/m8</td>
+<td>Compare r/m8 with r8</td>
+</tr>
+<tr>
+<td nowrap="nowrap">3B / r</td>
+<td nowrap="nowrap">CMP r16, r/m16</td>
+<td>Compare r/m16 with r16</td>
+</tr>
+<tr>
+<td nowrap="nowrap">3B / r</td>
+<td nowrap="nowrap">CMP r32, r/m32</td>
+<td>Compare r/m32 with r32</td>
+</tr>
+</table>
+
+<h2>Description</h2>
+
+<p>Compares the first source operand with the second source operand and sets the status flags in the EFLAGS register according to the results. The comparison is performed by subtracting the second operand from the first operand and then setting the status flags in the same manner as the <a href="sub.html">SUB</a> instruction. When an immediate value is used as an operand, it is sign-extended to the length of the first operand.</p>
+
+<p>The CMP instruction is typically used in conjunction with a conditional jump (Jcc), condition move (CMOVcc), or SETcc instruction. The condition codes used by the Jcc, CMOVcc, and SETcc instructions are based on the results of a CMP instruction. Appendix B, EFLAGS Condition Codes, in the Intel Architecture Software Developer's Manual, Volume 1, shows the relationship of the status flags and the condition codes.</p>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Operands</th>
+<th>Bytes</th>
+<th colspan="2">Clocks</th>
+</tr>
+<tr>
+<td>reg, reg</td>
+<td>2</td>
+<td>1</td>
+<td>UV</td>
+</tr>
+<tr>
+<td>mem, reg</td>
+<td>2 + d(0, 2)</td>
+<td>2</td>
+<td>UV</td>
+</tr>
+<tr>
+<td>reg, mem</td>
+<td>2 + d(0, 2)</td>
+<td>2</td>
+<td>UV</td>
+</tr>
+<tr>
+<td>reg, imm</td>
+<td>2 + i(1, 2)</td>
+<td>1</td>
+<td>UV</td>
+</tr>
+<tr>
+<td>mem, imm</td>
+<td>2 + d(0, 2) + i(1, 2)</td>
+<td>2</td>
+<td>UV ( not pairable if there is a displacement and immediate)</td>
+</tr>
+<tr>
+<td>acc, imm</td>
+<td>1 + i(1, 2)</td>
+<td>1</td>
+<td>UV</td>
+</tr>
+</table>
+
+<h2>Flags</h2>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>ID</th>
+<td>unaffected</td>
+<th>DF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VIP</th>
+<td>unaffected</td>
+<th>IF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VIF</th>
+<td>unaffected</td>
+<th>TF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>AC</th>
+<td>unaffected</td>
+<th>SF</th>
+<td>sets according to the result</td>
+</tr>
+<tr>
+<th>VM</th>
+<td>unaffected</td>
+<th>ZF</th>
+<td>sets according to the result</td>
+</tr>
+<tr>
+<th>RF</th>
+<td>unaffected</td>
+<th>AF</th>
+<td>sets according to the result</td>
+</tr>
+<tr>
+<th>NT</th>
+<td>unaffected</td>
+<th>PF</th>
+<td>sets according to the result</td>
+</tr>
+<tr>
+<th>IOPL</th>
+<td>unaffected</td>
+<th>CF</th>
+<td>sets according to the result</td>
+</tr>
+<tr>
+<th>OF</th>
+<td>sets according to the result</td>
+</tr>
+</table>
+
+</div><!-- #body -->
+
+
+
+
+
+</div>
+</body>
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/cmp.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+</html>

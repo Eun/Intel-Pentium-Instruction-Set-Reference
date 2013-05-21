@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/jmp.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+<head>
+ <title>Intel Pentium Instruction Set Reference - JMP - Jump</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+ <meta name="Author" content="jsimlo@yahoo.com (Medvedik)" />
+ <meta name="Robots" content="index,follow" />
+ <meta name="Keywords" content="intel, pentium, instruction, instructions, reference, asm, assembly, assmebler, cpu, 80386, 386, 80486, 486, 80x86, x86" />
+ <meta name="Description" content="Intel Pentium Instruction Set Reference - JMP - Jump" />
+ <style type="text/css"><!--
+  @import 'style.css';
+ --></style>
+</head>
+<body>
+
+<a name="go-menu"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-body">Jump to body</a> ]</i>
+<hr />
+</div>
+
+<div id="menu">
+<div id="menu-in">
+
+<h1>Menu</h1>
+
+<h2>Intro</h2>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="architecture.html">Architecture Overview</a></li>
+<li><a href="conventions.html">Conventions</a></li>
+</ul>
+
+<h2>Instructions</h2>
+
+<div class="ilist">
+<a href="index.html#a">A</a>
+<a href="index.html#b">B</a>
+<a href="index.html#c">C</a>
+<a href="index.html#d">D</a>
+<a href="index.html#e">E</a>
+<a href="index.html#f">F</a>
+<a href="index.html#g">G</a>
+<a href="index.html#h">H</a>
+<a href="index.html#i">I</a>
+<a href="index.html#j">J</a>
+<a href="index.html#k">K</a>
+<a href="index.html#l">L</a>
+<a href="index.html#m">M</a>
+<a href="index.html#n">N</a>
+<a href="index.html#o">O</a>
+<a href="index.html#p">P</a>
+<a href="index.html#q">Q</a>
+<a href="index.html#r">R</a>
+<a href="index.html#s">S</a>
+<a href="index.html#t">T</a>
+<a href="index.html#u">U</a>
+<a href="index.html#v">V</a>
+<a href="index.html#w">W</a>
+<a href="index.html#x">X</a>
+<a href="index.html#y">Y</a>
+<a href="index.html#z">Z</a>
+</div>
+
+
+
+
+<div class="tools" align="center">
+<p>[<a href="#">jump to top</a>]</p>
+</div>
+
+</div><!-- #menu-in -->
+</div><!-- #menu -->
+<a name="go-body"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-menu">Jump to menu</a> ]</i>
+<hr />
+</div>
+
+<div id="body">
+
+<h1>Intel Pentium Instruction Set Reference</h1>
+
+<h1>JMP - Jump</h1>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Code</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+<tr>
+<td nowrap="nowrap">EB cb</td>
+<td nowrap="nowrap">JMP rel8</td>
+<td>Jump short, relative, displacement relative to next instruction</td>
+</tr>
+<tr>
+<td nowrap="nowrap">E9 cw</td>
+<td nowrap="nowrap">JMP rel16</td>
+<td>Jump near, relative, displacement relative to next instruction</td>
+</tr>
+<tr>
+<td nowrap="nowrap">E9 cd</td>
+<td nowrap="nowrap">JMP rel32</td>
+<td>Jump near, relative, displacement relative to next instruction</td>
+</tr>
+<tr>
+<td nowrap="nowrap">FF /4</td>
+<td nowrap="nowrap">JMP r/m16</td>
+<td>Jump near, absolute indirect, address given in r/m16</td>
+</tr>
+<tr>
+<td nowrap="nowrap">FF /4</td>
+<td nowrap="nowrap">JMP r/m32</td>
+<td>Jump near, absolute indirect, address given in r/m32</td>
+</tr>
+<tr>
+<td nowrap="nowrap">EA cd</td>
+<td nowrap="nowrap">JMP ptr16:16</td>
+<td>Jump far, absolute, address given in operand</td>
+</tr>
+<tr>
+<td nowrap="nowrap">EA cp</td>
+<td nowrap="nowrap">JMP ptr16:32</td>
+<td>Jump far, absolute, address given in operand</td>
+</tr>
+<tr>
+<td nowrap="nowrap">FF /5</td>
+<td nowrap="nowrap">JMP m16:16</td>
+<td>Jump far, absolute indirect, address given in m16:16</td>
+</tr>
+<tr>
+<td nowrap="nowrap">FF /5</td>
+<td nowrap="nowrap">J MP m16:32</td>
+<td>Jump far, absolute indirect, address given in m16:32</td>
+</tr>
+</table>
+
+<h2>Description</h2>
+
+<p>Transfers program control to a different point in the instruction stream without recording return information. The destination (target) operand specifies the address of the instruction being jumped to. This operand can be an immediate value, a general-purpose register, or a memory location.</p>
+
+<p>This instruction can be used to execute four different types of jumps:</p>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Near jump</th>
+<td>A jump to an instruction within the current code segment (the segment currently pointed to by the CS register), sometimes referred to as an intrasegment jump.</td>
+</tr>
+<tr>
+<th>Short jump</th>
+<td>A near jump where the jump range is limited to -128 to +127 from the current EIP value.</td>
+</tr>
+<tr>
+<th>Far jump</th>
+<td>A jump to an instruction located in a different segment than the current code segment but at the same privilege level, sometimes referred to as an intersegment jump.</td>
+</tr>
+<tr>
+<th>Task switch</th>
+<td>A jump to an instruction located in a different task.</td>
+</tr>
+</table>
+
+<p>A task switch can only be executed in protected mode (see Chapter 6, Task Management, in the Intel Architecture Software Developer's Manual, Volume 3, for information on performing task switches with the JMP instruction).</p>
+
+<h4>Near and Short Jumps</h4>
+
+<p>When executing a near jump, the processor jumps to the address (within the current code segment) that is specified with the target operand. The target operand specifies either an absolute offset (that is an offset from the base of the code segment) or a relative offset (a signed displacement relative to the current value of the instruction pointer in the EIP register). A near jump to a relative offset of 8-bits (rel8) is referred to as a short jump. The CS register is not changed on near and short jumps.</p>
+
+<p>An absolute offset is specified indirectly in a general-purpose register or a memory location (r/m16 or r/m32). The operand-size attribute determines the size of the target operand (16 or 32 bits). Absolute offsets are loaded directly into the EIP register. If the operand-size attribute is 16, the upper two bytes of the EIP register are cleared to 0s, resulting in a maximum instruction pointer size of 16 bits.</p>
+
+<p>A relative offset (rel8, rel 16, or rel32) is generally specified as a label in assembly code, but at the machine code level, it is encoded as a signed 8-, 16-, or 32-bit immediate value. This value is added to the value in the EIP register. (Here, the EIP register contains the address of the instruction following the JMP instruction). When using relative offsets, the opcode (for short vs. near jumps) and the operand-size attribute (for near relative jumps) determines the size of the target operand (8, 16, or 32 bits).</p>
+
+<h4>Far Jumps in Real-Address or Virtual-8086 Mode</h4>
+
+<p>When executing a far jump in real-address or virtual-8086 mode, the processor jumps to the code segment and offset specified with the target operand. Here the target operand specifies an absolute far address either directly with a pointer (ptr16:16 or ptr16:32) or indirectly with a memory location (m16:16 or m16:32). With the pointer method, the segment and address of the called procedure is encoded in the instruction, using a 4-byte (16-bit operand size) or 6-byte (32-bit operand size) far address immediate. With the indirect method, the target operand specifies a memory location that contains a 4-byte (16-bit operand size) or 6-byte (32-bit operand size) far address. The far address is loaded directly into the CS and EIP registers. If the operand-size attribute is 16, the upper two bytes of the EIP register are cleared to 0s.</p>
+
+<h4>Far Jumps in Protected Mode</h4>
+
+<p>When the processor is operating in protected mode, the JMP instruction can be used to perform the following three types of far jumps:</p>
+
+<ul>
+<li>A far jump to a conforming or non-conforming code segment.</li>
+<li>A far jump through a call gate.</li>
+<li>A task switch.</li>
+</ul>
+
+<p>(The JMP instruction cannot be used to perform interprivilege level far jumps.)</p>
+
+<p>In protected mode, the processor always uses the segment selector part of the far address to access the corresponding descriptor in the GDT or LDT. The descriptor type (code segment, call gate, task gate, or TSS) and access rights determine the type of jump to be performed.</p>
+
+<p>If the selected descriptor is for a code segment, a far jump to a code segment at the same privilege level is performed. (If the selected code segment is at a different privilege level and the code segment is non-conforming, a general-protection exception is generated.) A far jump to the same privilege level in protected mode is very similar to one carried out in real-address or virtual-8086 mode. The target operand specifies an absolute far address either directly with a pointer (ptr16:16 or ptr16:32) or indirectly with a memory location (m16:16 or m16:32). The operand-size attribute determines the size of the offset (16 or 32 bits) in the far address. The new code segment selector and its descriptor are loaded into CS register, and the offset from the instruction is loaded into the EIP register. Note that a call gate (described in the next paragraph) can also be used to perform far call to a code segment at the same privilege level. Using this mechanism provides an extra level of indirection and is the preferred method of making jumps between 16-bit and 32-bit code segments.</p>
+
+<p>When executing a far jump through a call gate, the segment selector specified by the target operand identifies the call gate. (The offset part of the target operand is ignored.) The processor then jumps to the code segment specified in the call gate descriptor and begins executing the instruction at the offset specified in the call gate. No stack switch occurs. Here again, the target operand can specify the far address of the call gate either directly with a pointer (ptr16:16 or ptr16:32) or indirectly with a memory location (m16:16 or m16:32).</p>
+
+<p>Executing a task switch with the JMP instruction, is somewhat similar to executing a jump through a call gate. Here the target operand specifies the segment selector of the task gate for the task being switched to (and the offset part of the target operand is ignored). The task gate in turn points to the TSS for the task, which contains the segment selectors for the task's code and stack segments. The TSS also contains the EIP value for the next instruction that was to be executed before the task was suspended. This instruction pointer value is loaded into EIP register so that the task begins executing again at this next instruction.</p>
+
+<p>The JMP instruction can also specify the segment selector of the TSS directly, which eliminates the indirection of the task gate. See Chapter 6, Task Management, in Intel Architecture Software Developer's Manual, Volume 3, the for detailed information on the mechanics of a task switch.</p>
+
+<p>Note that when you execute at task switch with a JMP instruction, the nested task flag (NT) is not set in the EFLAGS register and the new TSS's previous task link field is not loaded with the old task's TSS selector. A return to the previous task can thus not be carried out by executing the <a href="iret.html">IRET</a> instruction. Switching tasks with the JMP instruction differs in this regard from the <a href="call.html">CALL</a> instruction which does set the NT flag and save the previous task link information, allowing a return to the calling task with an <a href="iret.html">IRET</a> instruction.</p>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Operands</th>
+<th>Bytes</th>
+<th colspan="2">Clocks</th>
+</tr>
+<tr>
+<td>short</td>
+<td>2</td>
+<td>1</td>
+<td>PV</td>
+</tr>
+<tr>
+<td>near</td>
+<td>3</td>
+<td>1</td>
+<td>PV</td>
+</tr>
+<tr>
+<td>far</td>
+<td>5</td>
+<td>3</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>r16</td>
+<td>2</td>
+<td>2</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>mem16</td>
+<td>2 + d(0, 2)</td>
+<td>2</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>mem32</td>
+<td>2 + d(4)</td>
+<td>4</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>r32</td>
+<td>2</td>
+<td>2</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>mem32</td>
+<td>2 + d(0, 2)</td>
+<td>2</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>mem48</td>
+<td>2 + d(6)</td>
+<td>4</td>
+<td>NP</td>
+</tr>
+</table>
+
+<h2>Flags</h2>
+
+<p>All flags are affected if a task switch occurs; no flags are affected if a task switch does not occur.</p>
+
+</div><!-- #body -->
+
+
+
+
+
+</div>
+</body>
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/jmp.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+</html>

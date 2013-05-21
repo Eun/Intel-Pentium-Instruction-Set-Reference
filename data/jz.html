@@ -1,0 +1,532 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/jz.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+<head>
+ <title>Intel Pentium Instruction Set Reference - JZ - Jump if Condition Is Met</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+ <meta name="Author" content="jsimlo@yahoo.com (Medvedik)" />
+ <meta name="Robots" content="index,follow" />
+ <meta name="Keywords" content="intel, pentium, instruction, instructions, reference, asm, assembly, assmebler, cpu, 80386, 386, 80486, 486, 80x86, x86" />
+ <meta name="Description" content="Intel Pentium Instruction Set Reference - JZ - Jump if Condition Is Met" />
+ <style type="text/css"><!--
+  @import 'style.css';
+ --></style>
+</head>
+<body>
+
+<a name="go-menu"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-body">Jump to body</a> ]</i>
+<hr />
+</div>
+
+<div id="menu">
+<div id="menu-in">
+
+<h1>Menu</h1>
+
+<h2>Intro</h2>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="architecture.html">Architecture Overview</a></li>
+<li><a href="conventions.html">Conventions</a></li>
+</ul>
+
+<h2>Instructions</h2>
+
+<div class="ilist">
+<a href="index.html#a">A</a>
+<a href="index.html#b">B</a>
+<a href="index.html#c">C</a>
+<a href="index.html#d">D</a>
+<a href="index.html#e">E</a>
+<a href="index.html#f">F</a>
+<a href="index.html#g">G</a>
+<a href="index.html#h">H</a>
+<a href="index.html#i">I</a>
+<a href="index.html#j">J</a>
+<a href="index.html#k">K</a>
+<a href="index.html#l">L</a>
+<a href="index.html#m">M</a>
+<a href="index.html#n">N</a>
+<a href="index.html#o">O</a>
+<a href="index.html#p">P</a>
+<a href="index.html#q">Q</a>
+<a href="index.html#r">R</a>
+<a href="index.html#s">S</a>
+<a href="index.html#t">T</a>
+<a href="index.html#u">U</a>
+<a href="index.html#v">V</a>
+<a href="index.html#w">W</a>
+<a href="index.html#x">X</a>
+<a href="index.html#y">Y</a>
+<a href="index.html#z">Z</a>
+</div>
+
+
+
+
+<div class="tools" align="center">
+<p>[<a href="#">jump to top</a>]</p>
+</div>
+
+</div><!-- #menu-in -->
+</div><!-- #menu -->
+<a name="go-body"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-menu">Jump to menu</a> ]</i>
+<hr />
+</div>
+
+<div id="body">
+
+<h1>Intel Pentium Instruction Set Reference</h1>
+
+<h1>JZ - Jump if Condition Is Met</h1>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Code</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+<tr>
+<td nowrap="nowrap">77 cb</td>
+<td nowrap="nowrap">JA rel8</td>
+<td>Jump short if above (CF=0 and ZF=0)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">73 cb</td>
+<td nowrap="nowrap">JAE rel8</td>
+<td>Jump short if above or equal (CF=0)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">72 cb</td>
+<td nowrap="nowrap">JB rel8</td>
+<td>Jump short if below (CF=1)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">76 cb</td>
+<td nowrap="nowrap">JBE rel8</td>
+<td>Jump short if below or equal (CF=1 or ZF=1)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">72 cb</td>
+<td nowrap="nowrap">JC rel8</td>
+<td>Jump short if carry (CF=1)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">E3 cb</td>
+<td nowrap="nowrap">JCXZ rel8</td>
+<td>Jump short if CX register is 0</td>
+</tr>
+<tr>
+<td nowrap="nowrap">E3 cb</td>
+<td nowrap="nowrap">JECXZ rel8</td>
+<td>Jump short if ECX register is 0</td>
+</tr>
+<tr>
+<td nowrap="nowrap">74 cb</td>
+<td nowrap="nowrap">JE rel8</td>
+<td>Jump short if equal (ZF=1)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">7F cb</td>
+<td nowrap="nowrap">JG rel8</td>
+<td>Jump short if greater (ZF=0 and SF=OF)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">7D cb</td>
+<td nowrap="nowrap">JGE rel8</td>
+<td>Jump short if greater or equal (SF=OF)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">7C cb</td>
+<td nowrap="nowrap">JL rel8</td>
+<td>Jump short if less (SF&lt;&gt;OF)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">7E cb</td>
+<td nowrap="nowrap">JLE rel8</td>
+<td>Jump short if less or equal (ZF=1 or SF&lt;&gt;OF)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">76 cb</td>
+<td nowrap="nowrap">JNA rel8</td>
+<td>Jump short if not above (CF=1 or ZF=1)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">72 cb</td>
+<td nowrap="nowrap">JNAE rel8</td>
+<td>Jump short if not above or equal (CF=1)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">73 cb</td>
+<td nowrap="nowrap">JNB rel8</td>
+<td>Jump short if not below (CF=0)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">77 cb</td>
+<td nowrap="nowrap">JNBE rel8</td>
+<td>Jump short if not below or equal (CF=0 and ZF=0)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">73 cb</td>
+<td nowrap="nowrap">JNC rel8</td>
+<td>Jump short if not carry (CF=0)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">75 cb</td>
+<td nowrap="nowrap">JNE rel8</td>
+<td>Jump short if not equal (ZF=0)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">7E cb</td>
+<td nowrap="nowrap">JNG rel8</td>
+<td>Jump short if not greater (ZF=1 or SF&lt;&gt;OF)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">7C cb</td>
+<td nowrap="nowrap">JNGE rel8</td>
+<td>Jump short if not greater or equal (SF&lt;&gt;OF)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">7D cb</td>
+<td nowrap="nowrap">JNL rel8</td>
+<td>Jump short if not less (SF=OF)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">7F cb</td>
+<td nowrap="nowrap">JNLE rel8</td>
+<td>Jump short if not less or equal (ZF=0 and SF=OF)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">71 cb</td>
+<td nowrap="nowrap">JNO rel8</td>
+<td>Jump short if not overflow (OF=0)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">7B cb</td>
+<td nowrap="nowrap">JNP rel8</td>
+<td>Jump short if not parity (PF=0)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">79 cb</td>
+<td nowrap="nowrap">JNS rel8</td>
+<td>Jump short if not sign (SF=0)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">75 cb</td>
+<td nowrap="nowrap">JNZ rel8</td>
+<td>Jump short if not zero (ZF=0)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">70 cb</td>
+<td nowrap="nowrap">JO rel8</td>
+<td>Jump short if overflow (OF=1)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">7A cb</td>
+<td nowrap="nowrap">JP rel8</td>
+<td>Jump short if parity (PF=1)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">7A cb</td>
+<td nowrap="nowrap">JPE rel8</td>
+<td>Jump short if parity even (PF=1)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">7B cb</td>
+<td nowrap="nowrap">JPO rel8</td>
+<td>Jump short if parity odd (PF=0)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">78 cb</td>
+<td nowrap="nowrap">JS rel8</td>
+<td>Jump short if sign (SF=1)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">74 cb</td>
+<td nowrap="nowrap">JZ rel8</td>
+<td>Jump short if zero (ZF = 1)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 87 cw/cd</td>
+<td nowrap="nowrap">JA rel16/32</td>
+<td>Jump near if above (CF=0 and ZF=0)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 83 cw/cd</td>
+<td nowrap="nowrap">JAE rel16/32</td>
+<td>Jump near if above or equal (CF=0)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 82 cw/cd</td>
+<td nowrap="nowrap">JB rel16/32</td>
+<td>Jump near if below (CF=1)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 86 cw/cd</td>
+<td nowrap="nowrap">JBE rel16/32</td>
+<td>Jump near if below or equal (CF=1 or ZF=1)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 82 cw/cd</td>
+<td nowrap="nowrap">JC rel16/32</td>
+<td>Jump near if carry (CF=1)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 84 cw/cd</td>
+<td nowrap="nowrap">JE rel16/32</td>
+<td>Jump near if equal (ZF=1)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 84 cw/cd</td>
+<td nowrap="nowrap">JZ rel16/32</td>
+<td>Jump near if 0 (ZF=1)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 8F cw/cd</td>
+<td nowrap="nowrap">JG rel16/32</td>
+<td>Jump near if greater (ZF=0 and SF=OF)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 8D cw/cd</td>
+<td nowrap="nowrap">JGE rel16/32</td>
+<td>Jump near if greater or equal (SF=OF)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 8C cw/cd</td>
+<td nowrap="nowrap">JL rel16/32</td>
+<td>Jump near if less (SF&lt;&gt;OF)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 8E cw/cd</td>
+<td nowrap="nowrap">JLE rel16/32</td>
+<td>Jump near if less or equal (ZF=1 or SF&lt;&gt;OF)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 86 cw/cd</td>
+<td nowrap="nowrap">JNA rel16/32</td>
+<td>Jump near if not above (CF=1 or ZF=1)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 82 cw/cd</td>
+<td nowrap="nowrap">JNAE rel16/32</td>
+<td>Jump near if not above or equal (CF=1)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 83 cw/cd</td>
+<td nowrap="nowrap">JNB rel16/32</td>
+<td>Jump near if not below (CF=0)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 87 cw/cd</td>
+<td nowrap="nowrap">JNBE rel16/32</td>
+<td>Jump near if not below or equal (CF=0 and ZF=0)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 83 cw/cd</td>
+<td nowrap="nowrap">JNC rel16/32</td>
+<td>Jump near if not carry (CF=0)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 85 cw/cd</td>
+<td nowrap="nowrap">JNE rel16/32</td>
+<td>Jump near if not equal (ZF=0)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 8E cw/cd</td>
+<td nowrap="nowrap">JNG rel16/32</td>
+<td>Jump near if not greater (ZF=1 or SF&lt;&gt;OF)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 8C cw/cd</td>
+<td nowrap="nowrap">JNGE rel16/32</td>
+<td>Jump near if not greater or equal (SF&lt;&gt;OF)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 8D cw/cd</td>
+<td nowrap="nowrap">JNL rel16/32</td>
+<td>Jump near if not less (SF=OF)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 8F cw/cd</td>
+<td nowrap="nowrap">JNLE rel16/32</td>
+<td>Jump near if not less or equal (ZF=0 and SF=OF)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 81 cw/cd</td>
+<td nowrap="nowrap">JNO rel16/32</td>
+<td>Jump near if not overflow (OF=0)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 8B cw/cd</td>
+<td nowrap="nowrap">JNP rel16/32</td>
+<td>Jump near if not parity (PF=0)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 89 cw/cd</td>
+<td nowrap="nowrap">JNS rel16/32</td>
+<td>Jump near if not sign (SF=0)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 85 cw/cd</td>
+<td nowrap="nowrap">JNZ rel16/32</td>
+<td>Jump near if not zero (ZF=0)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 80 cw/cd</td>
+<td nowrap="nowrap">JO rel16/32</td>
+<td>Jump near if overflow (OF=1)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 8A cw/cd</td>
+<td nowrap="nowrap">JP rel16/32</td>
+<td>Jump near if parity (PF=1)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 8A cw/cd</td>
+<td nowrap="nowrap">JPE rel16/32</td>
+<td>Jump near if parity even (PF=1)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 8B cw/cd</td>
+<td nowrap="nowrap">JPO rel16/32</td>
+<td>Jump near if parity odd (PF=0)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 88 cw/cd</td>
+<td nowrap="nowrap">JS rel16/32</td>
+<td>Jump near if sign (SF=1)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F 84 cw/cd</td>
+<td nowrap="nowrap">JZ rel16/32</td>
+<td>Jump near if 0 (ZF=1)</td>
+</tr>
+</table>
+
+<h2>Description</h2>
+
+<p>Checks the state of one or more of the status flags in the EFLAGS register (CF, OF, PF, SF, and ZF) and, if the flags are in the specified state (condition), performs a jump to the target instruction specified by the destination operand. A condition code (cc) is associated with each instruction to indicate the condition being tested for. If the condition is not satisfied, the jump is not performed and execution continues with the instruction following the Jcc instruction.</p>
+
+<p>The target instruction is specified with a relative offset (a signed offset relative to the current value of the instruction pointer in the EIP register). A relative offset (rel8, rel16, or rel32) is generally specified as a label in assembly code, but at the machine code level, it is encoded as a signed, 8-bit or 32-bit immediate value, which is added to the instruction pointer. Instruction coding is most efficient for offsets of -128 to +127. If the operand-size attribute is 16, the upper two bytes of the EIP register are cleared to 0s, resulting in a maximum instruction pointer size of 16 bits.</p>
+
+<p>The conditions for each Jcc mnemonic are given in the &quot;Description&quot; column of the table on the preceding page. The terms &quot;less&quot; and &quot;greater&quot; are used for comparisons of signed integers and the terms &quot;above&quot; and &quot;below&quot; are used for unsigned integers.</p>
+
+<p>Because a particular state of the status flags can sometimes be interpreted in two ways, two mnemonics are defined for some opcodes. For example, the JA (jump if above) instruction and the JNBE (jump if not below or equal) instruction are alternate mnemonics for the opcode 77H.</p>
+
+<p>The Jcc instruction does not support far jumps (jumps to other code segments). When the target for the conditional jump is in a different segment, use the opposite condition from the condition being tested for the Jcc instruction, and then access the target with an unconditional far jump (<a href="jmp.html">JMP</a> instruction) to the other segment. For example, the following conditional far jump is illegal:</p>
+
+<pre>
+JZ FARLABEL;
+</pre>
+
+<p>To accomplish this far jump, use the following two instructions:</p>
+
+<pre>
+JNZ BEYOND;
+JMP FARLABEL;
+BEYOND:
+</pre>
+
+<p>The JECXZ and JCXZ instructions differs from the other Jcc instructions because they do not check the status flags. Instead they check the contents of the ECX and CX registers, respectively, for 0. Either the CX or ECX register is chosen according to the address-size attribute. These instructions are useful at the beginning of a conditional loop that terminates with a conditional loop instruction (such as <a href="loop.html">LOOPNE</a>). They prevent entering the loop when the ECX or CX register is equal to 0, which would cause the loop to execute 2 32 or 64K times, respectively, instead of zero times.</p>
+
+<p>All conditional jumps are converted to code fetches of one or two cache lines, regardless of jump address or cacheability.</p>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Operands</th>
+<th>Bytes</th>
+<th colspan="2">Clocks</th>
+</tr>
+<tr>
+<td>near8</td>
+<td>2</td>
+<td>1</td>
+<td>PV</td>
+</tr>
+<tr>
+<td>near16</td>
+<td>3</td>
+<td>1</td>
+<td>PV</td>
+</tr>
+</table>
+
+<p>Cycles apply to jump and no jump.</p>
+
+<h2>Flags</h2>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>ID</th>
+<td>unaffected</td>
+<th>DF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VIP</th>
+<td>unaffected</td>
+<th>IF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VIF</th>
+<td>unaffected</td>
+<th>TF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>AC</th>
+<td>unaffected</td>
+<th>SF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VM</th>
+<td>unaffected</td>
+<th>ZF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>RF</th>
+<td>unaffected</td>
+<th>AF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>NT</th>
+<td>unaffected</td>
+<th>PF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>IOPL</th>
+<td>unaffected</td>
+<th>CF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>OF</th>
+<td>unaffected</td>
+</tr>
+</table>
+
+</div><!-- #body -->
+
+
+
+
+
+</div>
+</body>
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/jz.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+</html>

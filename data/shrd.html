@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/shrd.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+<head>
+ <title>Intel Pentium Instruction Set Reference - SHRD - Double Precision Shift Right</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+ <meta name="Author" content="jsimlo@yahoo.com (Medvedik)" />
+ <meta name="Robots" content="index,follow" />
+ <meta name="Keywords" content="intel, pentium, instruction, instructions, reference, asm, assembly, assmebler, cpu, 80386, 386, 80486, 486, 80x86, x86" />
+ <meta name="Description" content="Intel Pentium Instruction Set Reference - SHRD - Double Precision Shift Right" />
+ <style type="text/css"><!--
+  @import 'style.css';
+ --></style>
+</head>
+<body>
+
+<a name="go-menu"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-body">Jump to body</a> ]</i>
+<hr />
+</div>
+
+<div id="menu">
+<div id="menu-in">
+
+<h1>Menu</h1>
+
+<h2>Intro</h2>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="architecture.html">Architecture Overview</a></li>
+<li><a href="conventions.html">Conventions</a></li>
+</ul>
+
+<h2>Instructions</h2>
+
+<div class="ilist">
+<a href="index.html#a">A</a>
+<a href="index.html#b">B</a>
+<a href="index.html#c">C</a>
+<a href="index.html#d">D</a>
+<a href="index.html#e">E</a>
+<a href="index.html#f">F</a>
+<a href="index.html#g">G</a>
+<a href="index.html#h">H</a>
+<a href="index.html#i">I</a>
+<a href="index.html#j">J</a>
+<a href="index.html#k">K</a>
+<a href="index.html#l">L</a>
+<a href="index.html#m">M</a>
+<a href="index.html#n">N</a>
+<a href="index.html#o">O</a>
+<a href="index.html#p">P</a>
+<a href="index.html#q">Q</a>
+<a href="index.html#r">R</a>
+<a href="index.html#s">S</a>
+<a href="index.html#t">T</a>
+<a href="index.html#u">U</a>
+<a href="index.html#v">V</a>
+<a href="index.html#w">W</a>
+<a href="index.html#x">X</a>
+<a href="index.html#y">Y</a>
+<a href="index.html#z">Z</a>
+</div>
+
+
+
+
+<div class="tools" align="center">
+<p>[<a href="#">jump to top</a>]</p>
+</div>
+
+</div><!-- #menu-in -->
+</div><!-- #menu -->
+<a name="go-body"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-menu">Jump to menu</a> ]</i>
+<hr />
+</div>
+
+<div id="body">
+
+<h1>Intel Pentium Instruction Set Reference</h1>
+
+<h1>SHRD - Double Precision Shift Right</h1>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Code</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+<tr>
+<td nowrap="nowrap">0F AC</td>
+<td nowrap="nowrap">SHRD r/m16, r16, imm8</td>
+<td>Shift r/m16 to right imm8 places while shifting bits from r16 in from the left</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F AD</td>
+<td nowrap="nowrap">SHRD r/m16, r16, CL</td>
+<td>Shift r/m16 to right CL places while shifting bits from r16 in from the left</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F AC</td>
+<td nowrap="nowrap">SHRD r/m32, r32, imm8</td>
+<td>Shift r/m32 to right imm8 places while shifting bits from r32 in from the left</td>
+</tr>
+<tr>
+<td nowrap="nowrap">0F AD</td>
+<td nowrap="nowrap">SHRD r/m32, r32, CL</td>
+<td>Shift r/m32 to right CL places while shifting bits from r32 in from the left</td>
+</tr>
+</table>
+
+<h2>Description</h2>
+
+<p>Shifts the first operand (destination operand) to the right the number of bits specified by the third operand (count operand). The second operand (source operand) provides bits to shift in from the left (starting with the most significant bit of the destination operand). The destination operand can be a register or a memory location; the source operand is a register. The count operand is an unsigned integer that can be an immediate byte or the contents of the CL register. Only bits 0 through 4 of the count are used, which masks the count to a value between 0 and 31. If the count is greater than the operand size, the result in the destination operand is undefined.</p>
+
+<p>If the count is 1 or greater, the CF flag is filled with the last bit shifted out of the destination operand. For a 1-bit shift, the OF flag is set if a sign change occurred; otherwise, it is cleared. If the count operand is 0, the flags are not affected.</p>
+
+<p>The SHRD instruction is useful for multiprecision shifts of 64 bits or more.</p>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Operands</th>
+<th>Bytes</th>
+<th colspan="2">Clocks</th>
+</tr>
+<tr>
+<td>reg, reg, imm</td>
+<td>4</td>
+<td>4</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>mem, reg, imm</td>
+<td>4 + d(0 - 2)</td>
+<td>4</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>reg, reg, cl</td>
+<td>4</td>
+<td>4</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>mem, reg, cl</td>
+<td>4 + d(0 - 2)</td>
+<td>5</td>
+<td>NP</td>
+</tr>
+</table>
+
+<h2>Flags</h2>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>ID</th>
+<td>unaffected</td>
+<th>DF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VIP</th>
+<td>unaffected</td>
+<th>IF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VIF</th>
+<td>unaffected</td>
+<th>TF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>AC</th>
+<td>unaffected</td>
+<th>SF</th>
+<td>sets according to the value of the result</td>
+</tr>
+<tr>
+<th>VM</th>
+<td>unaffected</td>
+<th>ZF</th>
+<td>sets according to the value of the result</td>
+</tr>
+<tr>
+<th>RF</th>
+<td>unaffected</td>
+<th>AF</th>
+<td>undefined if a shift occurs</td>
+</tr>
+<tr>
+<th>NT</th>
+<td>unaffected</td>
+<th>PF</th>
+<td>sets according to the value of the result</td>
+</tr>
+<tr>
+<th>IOPL</th>
+<td>unaffected</td>
+<th>CF</th>
+<td>If the count is 1 or greater, filled with the last bit shifted out of the destination operand</td>
+</tr>
+<tr>
+<th>OF</th>
+<td>for a 1-bit shift, sets if a sign change occurred; otherwise, it is cleared; for shifts greater than 1 bit &mdash; undefined</td>
+</tr>
+</table>
+
+<p>If the count is 1 or greater, the CF flag is filled with the last bit shifted
+out of the destination operand and the SF, ZF, and PF flags are set according to
+the value of the result. For a 1-bit shift, the OF flag is set if a sign change
+occurred; otherwise, it is cleared. For shifts greater than 1 bit, the OF flag
+is undefined. If a shift occurs, the AF flag is undefined. If the count operand
+is 0, the flags are not affected. If the count is greater than the operand size,
+the flags are undefined.</p>
+
+</div><!-- #body -->
+
+
+
+
+
+</div>
+</body>
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/shrd.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+</html>

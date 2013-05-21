@@ -1,0 +1,191 @@
+
+/* desired font sizes */
+
+BODY {
+	font-size: small;
+}
+
+PRE, TABLE, TR, TD, TH {
+	font-size: inherit;
+}
+
+
+h1 {
+	font-size: 2em;
+}
+
+h2 {
+	font-size: 1.5em;
+}
+
+h3 {
+	font-size: 1.3em;
+}
+
+h4 {
+	font-size: 1.1em;
+}
+
+h5 {
+	font-size: 1em;
+}
+
+h6 {
+	font-size: .75em;
+}
+
+/* underlining of links */
+
+A:link, A:visited {
+	text-decoration: none;
+}
+
+A:hover, A:active {
+	text-decoration: underline;
+}
+
+/* specific classes */
+
+.error {
+	font-weight: bold;
+	color: red;
+	background-color: white;
+	border: 1px solid;
+	border-color: red;
+}
+
+.graybox, .graydiv {
+	background-color: #e5e5e5;
+	color: inherit;
+	border: 1px solid;
+	border-color: #767676;
+}
+
+.bluebox, .bluediv {
+	background-color: #d4e7ff;
+	color: inherit;
+	border: 1px solid;
+	border-color: #0072ff;
+}
+
+.hidden {
+	display: none;
+}
+
+.clear {
+	clear: both;
+}
+
+.jump {
+	display: none;
+}
+
+.ted-text {
+	display: none;
+}
+
+A[href] {
+	color: maroon;
+	font-weight: bold;
+}
+
+A:hover, A:active {
+	color: red;
+}
+
+/* ************************************************ */
+
+#menu,
+#adsense {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 13em;
+	background-color: #fb4;
+	border: 1px solid maroon;
+}
+
+#adsense {
+	left: auto;
+	right: 0;
+	width: 200px;
+	text-align: center;
+}
+
+#menu {
+	-moz-border-radius-bottomright: 15px;
+}
+#adsense {
+	-moz-border-radius-bottomleft: 15px;
+}
+
+#menu-in {
+	padding: 1em;
+}
+#adsense {
+	padding: 0 5px 5px 5px;
+}
+
+#menu H1,
+#adsense H1,
+#adsense HR {
+	display: none;
+}
+
+#menu UL {
+	margin: 0;
+	padding: 0;
+}
+
+#menu LI {
+	display: block;
+	list-style-type: none;
+}
+
+#menu .ilist {
+	text-align: center;
+	padding: 0 1em 1em 1em;
+}
+
+#menu .igo {
+	padding-bottom: 1em;
+}
+
+/* ************************************************ */
+
+#body {
+	margin-left: 13em;
+	margin-right: 210px;
+	padding: 0 1em;
+}
+
+#body TABLE.info TH,
+#body TABLE.info TD {
+	vertical-align: top;
+}
+
+TABLE.reg-32,
+TABLE.reg-16,
+TABLE.reg-8 {
+	border: none;
+}
+
+TABLE.reg-32 SMALL,
+TABLE.reg-16 SMALL,
+TABLE.reg-8 SMALL {
+	font-weight: normal;
+}
+
+TABLE.reg-32 TH {
+	background-color: #ff8;
+}
+
+TABLE.reg-16 TH {
+	background-color: #f8f;
+	width: 14em;
+}
+
+TABLE.reg-8 TH {
+	background-color: #8ff;
+	width: 7em;
+}

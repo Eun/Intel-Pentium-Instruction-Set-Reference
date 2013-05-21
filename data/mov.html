@@ -1,0 +1,439 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/mov.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+<head>
+ <title>Intel Pentium Instruction Set Reference - MOV - Move</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=windows-1250" />
+ <meta name="Author" content="jsimlo@yahoo.com (Medvedik)" />
+ <meta name="Robots" content="index,follow" />
+ <meta name="Keywords" content="intel, pentium, instruction, instructions, reference, asm, assembly, assmebler, cpu, 80386, 386, 80486, 486, 80x86, x86" />
+ <meta name="Description" content="Intel Pentium Instruction Set Reference - MOV - Move" />
+ <style type="text/css"><!--
+  @import 'style.css';
+ --></style>
+</head>
+<body>
+
+<a name="go-menu"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-body">Jump to body</a> ]</i>
+<hr />
+</div>
+
+<div id="menu">
+<div id="menu-in">
+
+<h1>Menu</h1>
+
+<h2>Intro</h2>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="architecture.html">Architecture Overview</a></li>
+<li><a href="conventions.html">Conventions</a></li>
+</ul>
+
+<h2>Instructions</h2>
+
+<div class="ilist">
+<a href="index.html#a">A</a>
+<a href="index.html#b">B</a>
+<a href="index.html#c">C</a>
+<a href="index.html#d">D</a>
+<a href="index.html#e">E</a>
+<a href="index.html#f">F</a>
+<a href="index.html#g">G</a>
+<a href="index.html#h">H</a>
+<a href="index.html#i">I</a>
+<a href="index.html#j">J</a>
+<a href="index.html#k">K</a>
+<a href="index.html#l">L</a>
+<a href="index.html#m">M</a>
+<a href="index.html#n">N</a>
+<a href="index.html#o">O</a>
+<a href="index.html#p">P</a>
+<a href="index.html#q">Q</a>
+<a href="index.html#r">R</a>
+<a href="index.html#s">S</a>
+<a href="index.html#t">T</a>
+<a href="index.html#u">U</a>
+<a href="index.html#v">V</a>
+<a href="index.html#w">W</a>
+<a href="index.html#x">X</a>
+<a href="index.html#y">Y</a>
+<a href="index.html#z">Z</a>
+</div>
+
+
+
+
+<div class="tools" align="center">
+<p>[<a href="#">jump to top</a>]</p>
+</div>
+
+</div><!-- #menu-in -->
+</div><!-- #menu -->
+<a name="go-body"></a>
+
+<div class="jump">
+<hr />
+<i>Quick navigation: [ <a href="#go-menu">Jump to menu</a> ]</i>
+<hr />
+</div>
+
+<div id="body">
+
+<h1>Intel Pentium Instruction Set Reference</h1>
+
+<h1>MOV - Move</h1>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Code</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+<tr>
+<td nowrap="nowrap">88 / r </td>
+<td nowrap="nowrap">MOV r/m8, r8</td>
+<td>Move r8 to r/m8</td>
+</tr>
+<tr>
+<td nowrap="nowrap">89 / r </td>
+<td nowrap="nowrap">MOV r/m16, r16</td>
+<td>Move r16 to r/m16</td>
+</tr>
+<tr>
+<td nowrap="nowrap">89 / r</td>
+<td nowrap="nowrap">MOV r/m32, r32</td>
+<td>Move r32 to r/m32</td>
+</tr>
+<tr>
+<td nowrap="nowrap">8A / r</td>
+<td nowrap="nowrap">MOV r8, r/m8</td>
+<td>Move r/m8 to r8</td>
+</tr>
+<tr>
+<td nowrap="nowrap">8B / r</td>
+<td nowrap="nowrap">MOV r16, r/m16</td>
+<td>Move r/m16 to r16</td>
+</tr>
+<tr>
+<td nowrap="nowrap">8B / r</td>
+<td nowrap="nowrap">MOV r32, r/m32</td>
+<td>Move r/m32 to r32</td>
+</tr>
+<tr>
+<td nowrap="nowrap">8C / r</td>
+<td nowrap="nowrap">MOV r/m16, Sreg</td>
+<td>Move segment register to r/m16 (In 32-bit mode, the assembler may insert the 16-bit operand-size prefix with this instruction)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">8E / r</td>
+<td nowrap="nowrap">MOV Sreg, r/m16</td>
+<td>Move r/m16 to segment register (In 32-bit mode, the assembler may insert the 16-bit operand-size prefix with this instruction)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">A0</td>
+<td nowrap="nowrap">MOV AL, moffs8</td>
+<td>Move byte at (seg:offset) to AL (The moffs8, moffs16, and moffs32 operands specify a simple offset relative to the segment base, where 8, 16, and 32 refer to the size of the data. The address-size attribute of the instruction determines the size of the offset, either 16 or 32 bits.)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">A1</td>
+<td nowrap="nowrap">MOV AX, moffs16</td>
+<td>Move word at (seg:offset) to AX The moffs8, moffs16, and moffs32 operands specify a simple offset relative to the segment base, where 8, 16, and 32 refer to the size of the data. The address-size attribute of the instruction determines the size of the offset, either 16 or 32 bits.)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">A1</td>
+<td nowrap="nowrap">MOV EAX, moffs32</td>
+<td>Move doubleword at (seg:offset) to EAX The moffs8, moffs16, and moffs32 operands specify a simple offset relative to the segment base, where 8, 16, and 32 refer to the size of the data. The address-size attribute of the instruction determines the size of the offset, either 16 or 32 bits.)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">A2</td>
+<td nowrap="nowrap">MOV moffs8, AL</td>
+<td>Move AL to (seg:offset) The moffs8, moffs16, and moffs32 operands specify a simple offset relative to the segment base, where 8, 16, and 32 refer to the size of the data. The address-size attribute of the instruction determines the size of the offset, either 16 or 32 bits.)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">A3</td>
+<td nowrap="nowrap">MOV moffs16, AX</td>
+<td>Move AX to (seg:offset) The moffs8, moffs16, and moffs32 operands specify a simple offset relative to the segment base, where 8, 16, and 32 refer to the size of the data. The address-size attribute of the instruction determines the size of the offset, either 16 or 32 bits.)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">A3</td>
+<td nowrap="nowrap">MOV moffs32, EAX</td>
+<td>Move EAX to (seg:offset) The moffs8, moffs16, and moffs32 operands specify a simple offset relative to the segment base, where 8, 16, and 32 refer to the size of the data. The address-size attribute of the instruction determines the size of the offset, either 16 or 32 bits.)</td>
+</tr>
+<tr>
+<td nowrap="nowrap">B0 + rb</td>
+<td nowrap="nowrap">MOV r8, imm8</td>
+<td>Move imm8 to r8</td>
+</tr>
+<tr>
+<td nowrap="nowrap">B8 + rw</td>
+<td nowrap="nowrap">MOV r16, imm16</td>
+<td>Move imm16 to r16</td>
+</tr>
+<tr>
+<td nowrap="nowrap">B8 + rd</td>
+<td nowrap="nowrap">MOV r32, imm32</td>
+<td>Move imm32 to r32</td>
+</tr>
+<tr>
+<td nowrap="nowrap">C6 / 0</td>
+<td nowrap="nowrap">MOV r/m8, imm8</td>
+<td>Move imm8 to r/m8</td>
+</tr>
+<tr>
+<td nowrap="nowrap">C7 / 0</td>
+<td nowrap="nowrap">MOV r/m16, imm16</td>
+<td>Move imm16 to r/m16</td>
+</tr>
+<tr>
+<td nowrap="nowrap">C7 / 0 </td>
+<td nowrap="nowrap">MOV r/m32, imm32</td>
+<td>Move imm32 to r/m32</td>
+</tr>
+</table>
+
+<h2>Description</h2>
+
+<p>Copies the second operand (source operand) to the first operand (destination operand). The source operand can be an immediate value, general-purpose register, segment register, or memory location; the destination register can be a general-purpose register, segment register, or memory location. Both operands must be the same size, which can be a byte, a word, or a doubleword.</p>
+
+<p>The MOV instruction cannot be used to load the CS register. Attempting to do so results in an invalid opcode exception (#UD). To load the CS register, use the far <a href="jmp.html">JMP</a>, <a href="call.html">CALL</a>, or <a href="ret.html">RET</a> instruction.</p>
+
+<p>If the destination operand is a segment register (DS, ES, FS, GS, or SS), the source operand must be a valid segment selector. In protected mode, moving a segment selector into a segment register automatically causes the segment descriptor information associated with that segment selector to be loaded into the hidden (shadow) part of the segment register. While loading this information, the segment selector and segment descriptor information is validated (see the &quot;Operation&quot; algorithm below). The segment descriptor data is obtained from the GDT or LDT entry for the specified segment selector.</p>
+
+<p>A null segment selector (values 0000-0003) can be loaded into the DS, ES, FS, and GS registers without causing a protection exception. However, any subsequent attempt to reference a segment whose corresponding segment register is loaded with a null value causes a general protection exception (#GP) and no memory reference occurs.</p>
+
+<p>Loading the SS register with a MOV instruction inhibits all interrupts until after the execution of the next instruction. This operation allows a stack pointer to be loaded into the ESP register with the next instruction (MOV ESP, stack-pointer value) before an interrupt occurs 1. The <a href="lds.html">LSS</a> instruction offers a more efficient method of loading the SS and ESP registers.</p>
+
+<p>When operating in 32-bit mode and moving data between a segment register and a general-purpose register, the Intel Architecture 32-bit processors do not require the use of the 16-bit operand-size prefix (a byte with the value 66H) with this instruction, but most assemblers will insert it if the standard form of the instruction is used (for example, MOV DS, AX). The processor will execute this instruction correctly, but it will usually require an extra clock. With most assemblers, using the instruction form MOV DS, EAX will avoid this unneeded 66H prefix. When the processor executes the instruction with a 32-bit general-purpose register, it assumes that the 16 least-significant bits of the general-purpose register are the destination or source operand. If the register is a destination operand, the resulting value in the two high-order bytes of the register is implementation dependent. For the Pentium Pro processor, the two high-order bytes are filled with zeros; for earlier 32-bit Intel Architecture processors, the two high order bytes are undefined.</p>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Operands</th>
+<th>Bytes</th>
+<th colspan="2">Clocks</th>
+</tr>
+<tr>
+<td>reg, reg</td>
+<td>2</td>
+<td>1</td>
+<td>UV</td>
+</tr>
+<tr>
+<td>mem, reg</td>
+<td>2 + d(0 - 2)</td>
+<td>1</td>
+<td>UV</td>
+</tr>
+<tr>
+<td>reg, mem</td>
+<td>2 + d(0 - 2)</td>
+<td>1</td>
+<td>UV</td>
+</tr>
+<tr>
+<td>mem, imm</td>
+<td>2 + d(0 - 2) + i(1, 2)</td>
+<td>1</td>
+<td>UV ( not pairable if there is a displacement and immediate)</td>
+</tr>
+<tr>
+<td>reg, imm</td>
+<td>2 + i(1, 2)</td>
+<td>1</td>
+<td>UV</td>
+</tr>
+<tr>
+<td>acc, mem</td>
+<td>3</td>
+<td>1</td>
+<td>UV</td>
+</tr>
+<tr>
+<td>mem, acc</td>
+<td>3</td>
+<td>1</td>
+<td>UV</td>
+</tr>
+</table>
+
+<h4>Segment Register Moves &mdash; Real Mode</h4>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Operands</th>
+<th>Bytes</th>
+<th colspan="2">Clocks</th>
+</tr>
+<tr>
+<td>seg, r16</td>
+<td>2</td>
+<td>2 - 11</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>seg, m16</td>
+<td>2 + d(0, 2)</td>
+<td>3 - 12</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>r16, seg</td>
+<td>2</td>
+<td>1</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>m16, seg</td>
+<td>2 + d(0, 2)</td>
+<td>1</td>
+<td>NP</td>
+</tr>
+</table>
+
+<h4>Segment Register Moves &mdash; Protected Mode Differences</h4>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Operands</th>
+<th>Bytes</th>
+<th colspan="2">Clocks</th>
+</tr>
+<tr>
+<td>seg, r16</td>
+<td>2</td>
+<td>2 - 11 (add 8 if new descriptor; add 6 if SS)</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>seg, m16</td>
+<td>2 + d(0, 2)</td>
+<td>3 - 12 (add 8 if new descriptor; add 6 if SS)</td>
+<td>NP</td>
+</tr>
+</table>
+
+<h4>Moves to/from special registers</h4>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>Operands</th>
+<th>Bytes</th>
+<th colspan="2">Clocks</th>
+</tr>
+<tr>
+<td>
+r32, cr32</td>
+<td>3</td>
+<td>4</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>
+cr32, r32</td>
+<td>3</td>
+<td>12/22 (cycles depend on which special register)</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>
+r32, dr32</td>
+<td>3</td>
+<td>2/12 (cycles depend on which special register)</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>
+dr32, r32</td>
+<td>3</td>
+<td>11/12 (cycles depend on which special register)</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>
+r32, tr32</td>
+<td>3</td>
+<td>-</td>
+<td>NP</td>
+</tr>
+<tr>
+<td>
+tr32, r32</td>
+<td>3</td>
+<td>-</td>
+<td>NP</td>
+</tr>
+</table>
+
+<h2>Flags</h2>
+
+<table border="1" cellpadding="5" class="info">
+<tr>
+<th>ID</th>
+<td>unaffected</td>
+<th>DF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VIP</th>
+<td>unaffected</td>
+<th>IF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VIF</th>
+<td>unaffected</td>
+<th>TF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>AC</th>
+<td>unaffected</td>
+<th>SF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>VM</th>
+<td>unaffected</td>
+<th>ZF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>RF</th>
+<td>unaffected</td>
+<th>AF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>NT</th>
+<td>unaffected</td>
+<th>PF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>IOPL</th>
+<td>unaffected</td>
+<th>CF</th>
+<td>unaffected</td>
+</tr>
+<tr>
+<th>OF</th>
+<td>unaffected</td>
+</tr>
+</table>
+
+</div><!-- #body -->
+
+
+
+
+
+</div>
+</body>
+<!-- Mirrored from jsimlo.sk/docs/cpu/index.php/mov.html by HTTrack Website Copier/3.x [XR&CO'2010], Wed, 12 Sep 2012 14:46:34 GMT -->
+</html>
